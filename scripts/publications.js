@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
           title.classList.add('publication-title');
           title.textContent = pub.title;
 
+          const awards = document.createElement('p');
+          awards.classList.add('publication-awards');
+          awards.textContent = `${pub.awards}`;
+
           const authors = document.createElement('p');
           authors.classList.add('publication-authors');
           authors.textContent = `${pub.authors}`;
@@ -55,10 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
           const conference = document.createElement('p');
           conference.classList.add('publication-conference');
           conference.textContent = `${pub.conference}`;
-
-          const awards = document.createElement('p');
-          awards.classList.add('publication-awards');
-          awards.textContent = `${pub.awards}`;
 
           const links = document.createElement('p');
           links.classList.add('publication-links');
@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
           // category.textContent = `Category: ${pub.category}`;
 
           div.appendChild(title);
+          div.appendChild(awards);
           div.appendChild(authors);
           div.appendChild(conference);
-          div.appendChild(awards);
           div.appendChild(links);
           // div.appendChild(category);
 
