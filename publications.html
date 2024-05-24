@@ -4,36 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FORUM</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <div id="header-placeholder"></div>
+<div id="header-placeholder"></div>
+<script src="scripts/header.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-    
-            // After the header is inserted, find and highlight the active link
-            highlightActiveLink();
-        });
-    });
-    
-    function highlightActiveLink() {
-        const navLinks = document.querySelectorAll("nav a");
-        const currentPath = window.location.pathname.split("/").pop();
-    
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute("href").split("/").pop();
-    
-            if (linkPath === currentPath) {
-                link.classList.add("active-link");
-            }
-        });
-    }
-    </script>
-
+    <div class="publications-widget">
+        <!-- <h2>Publications</h2> -->
+        <div class="category-buttons">
+            <!-- Category buttons will be injected here by JavaScript -->
+        </div>
+        <div class="publications-list">
+            <!-- Publications will be injected here by JavaScript -->
+        </div>
+    </div>
+    <script src="scripts/publications.js"></script>
 </body>
 </html>
