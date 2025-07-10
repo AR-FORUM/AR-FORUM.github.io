@@ -1,37 +1,46 @@
 @import "font.css";
 
+:root {
+  --highlight: #000000;
+  --primary: rgb(0, 71, 171);
+  --primary-hover: rgb(0, 150, 255);
+  --lightbg: #f5f5f5
+}
+
+.layout {
+  max-width: 1000px;
+  margin: 0 auto;           /* center horizontally */
+  padding: 0 1rem;          /* small side padding for mobile */
+}
+
 .active-link {
-    background-color:#c6bcff; /* Red border for the active link */
+    background-color:; /* Red border for the active link */
     padding: 10px;
     border-radius: 4px;
 }
 body {
-  font-family:"Roboto", sans-serif;
-  color: #0e0c3f;
+  font-family:"palatino",serif;
   text-align:justify;
 }
 
 header {
-  background-color: #ada9f5;
+  background-color:var(--lightbg);
   padding: 10px;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "palatino", sans-serif;
   }
 
 header h1 {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 500;
   margin-top: 30px;
-  margin-bottom: 7px;
-  color:#0e0c3f;
+  margin-bottom: 20px;
 }
 
 nav ul {
   font-size: 25px;
   font-weight: 300;
   margin-top: 0px;
-  color:#0e0c3f
 }
 
 h2 {
@@ -55,18 +64,30 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #000;
+    text-decoration: none;
+    color:var(--primary);
+    border-bottom: 1px;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: var(--primary-hover);
+}
+
+.highlight {
+    color: var(--highlight);
+    text-decoration: italics;
+    font-weight:800
 }
 
 section {
-  padding-top: 20px;
-  padding-left: 15%;
-  width: 80%;
+  padding: 20px 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 footer {
-  background-color: #f0f0f0;
+  background-color: var(--lightbg);
   text-align: center;
   padding: 5px;
   position: fixed;
@@ -74,12 +95,77 @@ footer {
   width: 100%;
 }
 
-/* Group Photo */
+.hero-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
 
+.lab-carousel {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 3 / 2;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.hero-text {
+  text-align: left;
+  max-width: 800px;
+}
+
+
+/* Define a fixed aspect ratio container */
+.image-box {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* or 16 / 9, 4 / 3 — choose what looks best */
+  top: 0;
+  left: 0;
+}
+
+
+.lab-carousel {
+  width: 400px;
+  position: relative;
+  width: 50%;
+  aspect-ratio: 3 / 2;       /* Set consistent shape */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* All images occupy same space and are layered */
 .lab-image {
-  height: 700px;
-  object-fit: scale-down; /* Ensures the image covers the area without stretching */
-  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* or 'contain' */
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+
+.dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #0047AB;  /* or your highlight color */
 }
 
 
@@ -126,27 +212,27 @@ footer {
 /* News */
 
 .news-widget {
-  width: 700px;  /* Adjust as needed */
-  border: 2px solid #ebe0f6;
+  width: 800px;  /* Adjust as needed */
+  border: 0px solid var(--lightbg);
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .news-widget h2 {
-  margin: 0 0 10px;
-  font-size: 1.5em;
+  margin: 0 0 20px;
+  font-size: 2em;
 }
 
 .news-list {
-  max-height: 300px;  /* Adjust as needed for desired height */
-  overflow-y: scroll;
-  border-top: 2px solid #ebe0f6;
+  max-height: 200px;  /* Adjust as needed for desired height */
+  overflow-y: auto;   
   padding-top: 10px;
 }
 
 .news-item {
-  margin-bottom: 10px;
+    display: flex;
+    margin-bottom:10px;
+    gap: 0.5rem;  
 }
 
 .news-item:last-child {
@@ -154,13 +240,26 @@ footer {
 }
 
 .news-date {
-  font-weight: bolder;
-  color: #ada9f5;
+  white-space: nowrap;   /* never wrap the date */
+  flex: 0 0 auto;        /* don’t shrink or grow it */
+  font-weight: 800;
 }
+
 
 .news-content {
   margin-left: 10px;
 }
+
+.news-event a {
+    text-decoration: none; 
+    color:#000000;
+}
+
+.news-event a:hover {
+    text-decoration: none;
+    color: var(--primary-hover);
+}
+
 
 /* Publications */
 .publications-widget {
@@ -214,7 +313,7 @@ footer {
 }
 
 .publication-links a:hover {
-  text-decoration: underline;
+  text-decoration: underline;  
 }
 
 /* Category Buttons */

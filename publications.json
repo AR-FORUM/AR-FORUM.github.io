@@ -1,0 +1,857 @@
+{
+  "preprints": [    
+    {
+      "title": "AutoFT: Learning an Objective for Robust Fine-Tuning",
+      "url": "https://arxiv.org/pdf/2401.10220.pdf",
+      "authors": [],
+      "venue": "",
+      "year": "",
+      "awards": [],
+      "enabled": false
+    }
+  ],
+  "publications": [
+    {
+      "title": "Overtrained Language Models Are Harder to Fine-Tune",
+      "url": "https://arxiv.org/pdf/2503.19206",
+      "authors": [
+        "Jacob Mitchell Springer",
+        "Sachin Goyal",
+        "Kaiyue Wen",
+        "Tanishq Kumar",
+        "Xiang Yue",
+        "Sadhika Malladi",
+        "Graham Neubig",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "year": "2025",
+      "awards": [
+        "Outstanding Paper Award at SCOPE workshop at ICLR 2025",
+        "Entropic Paper Award at ICBINB workshop at ICLR 2025"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Roll the dice & look before you leap: Going beyond the creative limits of next-token prediction",
+      "url": "https://arxiv.org/pdf/2504.15266",
+      "authors": [
+        "Vaishnavh Nagarajan",
+        "Chen Henry Wu",
+        "Charles Ding",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "year": "2025",
+      "awards": [
+        "Spotlight"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Disentangling Sequence Memorization and General Capability in LLMs",
+      "url": null,
+	"authors": ["Gaurav Ghosal",
+		    "Pratyush Maini",
+		   "Aditi Raghunathan"],
+      "venue": "ICML",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Scaling Laws for Precision",
+      "url": "https://arxiv.org/pdf/2411.04330",
+      "authors": [
+        "Tanishq Kumar",
+        "Zachary Ankner",
+        "Benjamin F. Spector",
+        "Blake Bordelon",
+        "Niklas Muennighoff",
+        "Mansheej Paul",
+        "Cengiz Pehlevan",
+        "Christopher Ré",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2025",
+      "awards": [
+        "Oral"
+      ],
+      "enabled": true
+    },
+      {
+	  "title": "Weight Ensembling Improves Reasoning in Language Models",
+	  "url": "https://arxiv.org/pdf/2504.10478",
+	  "authors": [
+              "Xingyu Dang",
+              "Christina Baek",
+              "Kaiyue Wen",
+              "Zico Kolter",
+              "Aditi Raghunathan"
+	  ],
+	  "venue": "arXiv",
+	  "year": "2025",
+	  "awards": [],
+	  "enabled": true
+      },
+
+      {
+	  "title": "Exact Unlearning of Finetuning Data via Model Merging at Scale",
+	  "url": "https://arxiv.org/pdf/2504.04626",
+	  "authors": [
+              "Kevin Kuo",
+              "Amrith Setlur",
+              "Kartik Srinivas",
+              "Aditi Raghunathan",
+              "Virginia Smith"
+	  ],
+	  "venue": "arXiv",
+	  "year": "2025",
+	  "awards": [],
+	  "enabled": true
+      },
+      {
+	  "title": "Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions",
+	  "url": "https://arxiv.org/pdf/2503.03862v1",
+	  "authors":["Emmy Liu",
+		     "Amanda Bertsch",
+		     "Lintang Sutawika",
+		     "Lindia Tjuatja",
+		     "Patric Fernandes",
+		     "Lara Marinov",
+		     "Michael Chen",
+		     "Shreya Singhal",
+		     "Carolin Lawrence",
+		     "Aditi Raghunathan",
+		     "Kiril Gashteovski",
+		     "Graham Neubig"],
+	  "venue": "arXiv",
+	  "year": "2025",
+	  "awards": [],
+	  "enabled": true
+      }, 
+
+
+    {
+      "title": "Context-Parametric Inversion: Why Instruction Finetuning May Not Actually Improve Context Reliance",
+      "url": "https://arxiv.org/pdf/2410.10796",
+      "authors": [
+        "Sachin Goyal",
+        "Christina Baek",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2025",
+      "awards": [
+        "Oral"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Dissecting Adversarial Robustness of Multimodal Agents",
+      "url": "https://arxiv.org/pdf/2406.12814",
+      "authors": [
+        "Chen Henry Wu",
+        "Jing Yu Koh",
+        "Ruslan Salakhutdinov",
+        "Daniel Fried",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2025",
+      "awards": [
+          "Oral at Open World Agents Workshop at NeurIPS 2024"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Repetition Improves Language Model Embeddings",
+      "url": "https://arxiv.org/pdf/2402.15449.pdf",
+      "authors": [
+        "Jacob Mitchell Springer",
+        "Suhas Kotha",
+        "Daniel Fried",
+        "Graham Neubig",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
+    {
+	"title": "Understanding the Influence of Synthetic Data for Text Embedders",
+	"url": null,
+	"authors": ["Jacob Mitchell Springer",
+		    "Vaibhav Adlakha",
+		    "Siva Reddy",
+		    "Aditi Raghunathan",
+		    "Marius Mosbach"
+		   ],
+	"venue": "ACL Findings",
+	"year": 2025,
+	"awards": [],
+	"enabled": true
+    },
+      
+    {
+	"title": "Mitigating Bias in RAG: Controlling the Embedder",
+	"url": "https://arxiv.org/pdf/2502.17390",
+	"authors": ["Taeyoun Kim",
+		    "Jacob Mitchell Springer",
+		    "Aditi Raghunathan",
+		    "Maarten Sap"
+		   ],
+	"venue": "ACL Findings",
+	"year": 2025,
+	"awards": [],
+	"enabled": true
+    }, 
+      
+    {
+      "title": "Theory of Agreement-on-the-Line in Linear Models and Gaussian Data",
+      "url": "https://openreview.net/attachment?id=cUTzrd9mIA&name=pdf",
+      "authors": [
+        "Christina Baek",
+        "Aditi Raghunathan",
+        "Zico Kolter"
+      ],
+      "venue": "AISTATS",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Testing the Limits of Jailbreaking Defenses via the Purple Problem",
+      "url": "https://arxiv.org/pdf/2403.14725.pdf",
+      "authors": [
+        "Taeyoun Kim",
+        "Suhas Kotha",
+        "Aditi Raghunathan"
+      ],
+      "venue": "NeurIPS Safe Generative AI Workshop",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Predicting the Performance of Foundation Models via Agreement-on-the-Line",
+      "url": "https://arxiv.org/pdf/2404.01542.pdf",
+      "authors": [
+        "Rahul Saxena",
+        "Taeyoun Kim",
+        "Aman Mehra",
+        "Christina Baek",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "NeurIPS",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Test-Time Adaptation Induces Stronger Accuracy and Agreement-on-the-Line",
+      "url": "https://arxiv.org/pdf/2310.04941.pdf",
+      "authors": [
+        "Eungyeup Kim",
+        "Mingjie Sun",
+        "Christina Baek",
+        "Aditi Raghunathan",
+        "Zico Kolter"
+      ],
+      "venue": "NeurIPS",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Understanding Finetuning for Factual Knowledge Extraction",
+      "url": "https://openreview.net/pdf?id=cPsn9AcOYh",
+      "authors": [
+        "Gaurav Ghosal",
+        "Tatsunori Hashimoto",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Scaling Laws for Data Filtering: Data Curation Cannot Be Compute Agnostic",
+      "url": "https://arxiv.org/pdf/2404.07177.pdf",
+      "authors": [
+        "Sachin Goyal",
+        "Pratyush Maini",
+        "Zachary Chase Lipton",
+        "Aditi Raghunathan",
+        "Zico Kolter"
+      ],
+      "venue": "CVPR",
+      "year": "2024",
+      "awards": [
+        "Best Paper Award at DPFM Workshop at ICLR 2024"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Multitask Learning Can Improve Worst-Group Outcomes",
+      "url": "https://arxiv.org/pdf/2312.03151.pdf",
+      "authors": [
+        "Atharva Kulkarni",
+        "Lucio M. Dery",
+        "Amrith Setlur",
+        "Aditi Raghunathan",
+        "Ameet Talwalkar",
+        "Graham Neubig"
+      ],
+      "venue": "TMLR",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Understanding Catastrophic Forgetting in Language Models via Implicit Inference",
+      "url": "https://arxiv.org/pdf/2309.10105.pdf",
+      "authors": [
+        "Suhas Kotha",
+        "Jacob Mitchell Springer",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Sharpness-Aware Minimization Enhances Feature Quality via Balanced Learning",
+      "url": "https://openreview.net/pdf?id=3xDaj4pRna",
+      "authors": [
+        "Jacob Springer",
+        "Vaishnavh Nagarajan",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "T-MARS: Improving Visual Representations by Circumventing Text Feature Learning",
+      "url": "https://arxiv.org/pdf/2307.03132.pdf",
+      "authors": [
+        "Pratyush Maini",
+        "Sachin Goyal",
+        "Zachary Lipton",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2024",
+      "awards": [
+        "Oral at ICCV 2023 Datacomp Workshop"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Why is Sharpness-Aware Minimization Robust to Label Noise?",
+      "url": "https://arxiv.org/pdf/2405.03676",
+      "authors": [
+        "Christina Baek",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICLR",
+      "year": "2024",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Complementary Benefits of Contrastive Learning and Self-Training Under Distribution Shift",
+      "url": "https://arxiv.org/pdf/2312.03318.pdf",
+      "authors": [
+        "Saurabh Garg",
+        "Amrith Setlur",
+        "Zachary Lipton",
+        "Sivaraman Balakrishnan",
+        "Virginia Smith",
+        "Aditi Raghunathan"
+      ],
+      "venue": "NeurIPS",
+      "year": "2023",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Contextual Reliability: When Different Features Matter in Different Contexts",
+      "url": "https://openreview.net/pdf?id=s1hrcLUcld",
+      "authors": [
+        "Gaurav Rohit Ghosal",
+        "Amrith Setlur",
+        "Daniel S. Brown",
+        "Anca Dragan",
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "year": "2023",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Automatically Auditing Large Language Models via Discrete Optimization",
+      "url": "https://arxiv.org/pdf/2303.04381.pdf",
+      "authors": [
+        "Erik Jones",
+        "Anca Dragan",
+        "Aditi Raghunathan",
+        "Jacob Steinhardt"
+      ],
+      "venue": "ICML",
+      "year": "2023",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Finetune Like You Pretrain: Improved Finetuning of Zero-Shot Vision Models",
+      "url": "https://arxiv.org/pdf/2212.00638.pdf",
+      "authors": [
+        "Sachin Goyal",
+        "Ananya Kumar",
+        "Sankalp Garg",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "CVPR",
+      "year": "2023",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Using Language to Extend to Unseen Domains",
+      "url": "https://arxiv.org/pdf/2210.09520.pdf",
+      "authors": [
+        "Lisa Dunlap",
+        "Clara Mohri",
+        "Devin Guillory",
+        "Han Zhang",
+        "Trevor Darrell",
+        "Joseph E. Gonzalez",
+        "Aditi Raghunathan",
+        "Anja Rohrbach"
+      ],
+      "venue": "ICLR",
+      "year": "2023",
+      "awards": [
+        "Spotlight"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Bitrate-Constrained DRO: Beyond Worst Case Robustness To Unknown Group Shifts",
+      "url": "#",
+      "authors": [
+        "Amrith Setlur",
+        "Don Dennis",
+        "Benjamin Eysenbach",
+        "Aditi Raghunathan",
+        "Chelsea Finn",
+        "Virginia Smith",
+        "Sergey Levine"
+      ],
+      "venue": "ICLR",
+      "year": "2023",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Agreement-on-the-Line: Predicting the Performance of Neural Networks under Distribution Shift",
+      "url": "https://arxiv.org/pdf/2206.13089.pdf",
+      "authors": [
+        "Christina Baek",
+        "Yiding Jiang",
+        "Aditi Raghunathan",
+        "Zico Kolter"
+      ],
+      "venue": "NeurIPS",
+      "year": "2022",
+      "awards": [
+        "Oral"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Test-Time Adaptation via Conjugate Pseudo-Labels",
+      "url": "https://arxiv.org/pdf/2207.09640.pdf",
+      "authors": [
+        "Sachin Goyal",
+        "Mingjie Sun",
+        "Aditi Raghunathan",
+        "Zico Kolter"
+      ],
+      "venue": "NeurIPS",
+      "year": "2022",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Learning Representations that Enable Generalization in Assistive Tasks",
+      "url": "#",
+      "authors": [
+        "Jerry Zhi-yang He",
+        "Zackory Erickson",
+        "Daniel S. Brown",
+        "Aditi Raghunathan",
+        "Anca Dragan"
+      ],
+      "venue": "CoRL",
+      "year": "2022",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Calibrated Ensembles Can Mitigate Accuracy Tradeoffs Under Distribution Shift",
+      "url": "https://arxiv.org/pdf/2207.08977.pdf",
+      "authors": [
+        "Ananya Kumar",
+        "Tengyu Ma",
+        "Percy Liang",
+        "Aditi Raghunathan"
+      ],
+      "venue": "UAI",
+      "year": "2022",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Fine-Tuning Can Distort Pre-Trained Features and Underperforms Out-of-Distribution",
+      "url": "https://openreview.net/pdf?id=UYneFzXSJWh",
+      "authors": [
+        "Ananya Kumar",
+        "Aditi Raghunathan",
+        "Robbie Jones",
+        "Tengyu Ma",
+        "Percy Liang"
+      ],
+      "venue": "ICLR",
+      "year": "2022",
+      "awards": [
+        "Oral"
+      ],
+      "enabled": true
+    },
+    {
+      "title": "An Explanation of In-Context Learning as Implicit Bayesian Inference",
+      "url": "https://arxiv.org/pdf/2111.02080.pdf",
+      "authors": [
+        "Sang Michael Xie",
+        "Aditi Raghunathan",
+        "Percy Liang",
+        "Tengyu Ma"
+      ],
+      "venue": "ICLR",
+      "year": "2022",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Accuracy on the Line: On the Strong Correlation Between Out-of-Distribution and In-Distribution Generalization",
+      "url": "https://arxiv.org/pdf/2107.04649.pdf",
+      "authors": [
+        "John Miller",
+        "Rohan Taori",
+        "Aditi Raghunathan",
+        "Shiori Sagawa",
+        "Pang Wei Koh",
+        "Vaishaal Shankar",
+        "Percy Liang",
+        "Yair Carmon",
+        "Ludwig Schmidt"
+      ],
+      "venue": "ICML",
+      "year": "2021",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Just Train Twice: Improving Group Robustness without Training Group Information",
+      "url": "https://arxiv.org/pdf/2107.09044.pdf",
+      "authors": [
+        "Evan Liu",
+        "Behzaad Haghgoo",
+        "Annie Chen",
+        "Aditi Raghunathan",
+        "Pang Wei Koh",
+        "Shiori Sagawa",
+        "Percy Liang",
+        "Chelsea Finn"
+      ],
+      "venue": "ICML",
+      "year": "2021",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Explore then Execute: Adapting without Rewards via Factorized Meta-Reinforcement Learning",
+      "url": "https://arxiv.org/pdf/2008.02790.pdf",
+      "authors": [
+        "Evan Liu",
+        "Aditi Raghunathan",
+        "Percy Liang",
+        "Chelsea Finn"
+      ],
+      "venue": "ICML",
+      "year": "2021",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Enabling Certification of Verification-Agnostic Networks via Memory-Efficient Semidefinite Programming",
+      "url": "https://arxiv.org/pdf/2010.11645.pdf",
+      "authors": [
+        "Sumanth Dathathri*",
+        "Krishnamurthy Dvijotham*",
+        "Alexey Kurakin*",
+        "Aditi Raghunathan*",
+        "Jonathan Uesato",
+        "Rudy Bunel",
+        "Shreya Shankar",
+        "Jacob Steinhardt",
+        "Ian Goodfellow",
+        "Percy Liang",
+        "Pushmeet Kohli"
+      ],
+      "venue": "NeurIPS",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "The Pitfalls of Simplicity Bias in Neural Networks",
+      "url": "https://arxiv.org/pdf/2006.07710.pdf",
+      "authors": [
+        "Harshay Shah",
+        "Kaustav Tamuly",
+        "Aditi Raghunathan",
+        "Prateek Jain",
+        "Praneeth Netrapalli"
+      ],
+      "venue": "NeurIPS",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "DROCC: Deep Robust One-Class Classification",
+      "url": "https://arxiv.org/pdf/2002.12718.pdf",
+      "authors": [
+        "Sachin Goyal",
+        "Aditi Raghunathan",
+        "Moksh Jain",
+        "Harsha Vardhan Simhadri",
+        "Prateek Jain"
+      ],
+      "venue": "ICML",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "An Investigation of Why Overparameterization Exacerbates Spurious Correlations",
+      "url": "https://arxiv.org/pdf/2005.04345.pdf",
+      "authors": [
+        "Shiori Sagawa",
+        "Aditi Raghunathan",
+        "Pang Wei Koh",
+        "Percy Liang"
+      ],
+      "venue": "ICML",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Understanding and Mitigating the Tradeoff Between Robustness and Accuracy",
+      "url": "https://arxiv.org/pdf/2002.10716.pdf",
+      "authors": [
+        "Aditi Raghunathan",
+        "Sang Michael Xie",
+        "Fanny Yang",
+        "John Duchi",
+        "Percy Liang"
+      ],
+      "venue": "ICML",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Robust Encodings: A Framework for Combating Adversarial Typos",
+      "url": "https://arxiv.org/pdf/2005.01229.pdf",
+      "authors": [
+        "Erik Jones",
+        "Robin Jia",
+        "Aditi Raghunathan",
+        "Percy Liang"
+      ],
+      "venue": "ACL",
+      "year": "2020",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Adversarial Training Can Hurt Generalization",
+      "url": "https://openreview.net/pdf?id=SyxM3J256E",
+      "authors": [
+        "Aditi Raghunathan",
+        "Sang Michael Xie",
+        "Fanny Yang",
+        "John Duchi",
+        "Percy Liang"
+      ],
+      "venue": "ICML 2019 Workshop: Identifying and Understanding Deep Learning",
+      "year": "Phenomena",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Unlabeled Data Improves Adversarial Robustness",
+      "url": "https://arxiv.org/pdf/1905.13736.pdf",
+      "authors": [
+        "Yair Carmon",
+        "Aditi Raghunathan*",
+        "Ludwig Schmidt",
+        "Percy Liang",
+        "John Duchi"
+      ],
+      "venue": "NeurIPS",
+      "year": "2019",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Certified Robustness to Adversarial Word Substitutions",
+      "url": "https://arxiv.org/pdf/1909.00986.pdf",
+      "authors": [
+        "Robin Jia",
+        "Aditi Raghunathan",
+        "Kerem Göksel",
+        "Percy Liang"
+      ],
+      "venue": "EMNLP",
+      "year": "2019",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Maximum Weighted Loss Discrepancy",
+      "url": "https://arxiv.org/pdf/1906.03518.pdf",
+      "authors": [
+        "Fereshte Khani",
+        "Aditi Raghunathan",
+        "Percy Liang"
+      ],
+      "venue": "SafeML ICLR 2019",
+      "year": "Workshop",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Semidefinite Relaxations for Certifying Robustness to Adversarial Examples",
+      "url": "https://arxiv.org/pdf/1811.01057.pdf",
+      "authors": [
+        "Aditi Raghunathan",
+        "Jacob Steinhardt",
+        "Percy Liang"
+      ],
+      "venue": "NeurIPS",
+      "year": "2018",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Certified Defenses Against Adversarial Examples",
+      "url": "https://openreview.net/pdf?id=Bys4ob-Rb",
+      "authors": [
+        "Aditi Raghunathan",
+        "Jacob Steinhardt",
+        "Percy Liang"
+      ],
+      "venue": "ICLR",
+      "year": "2018",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Learning Mixture of Gaussians with Streaming Data",
+      "url": "https://arxiv.org/pdf/1707.02391.pdf",
+      "authors": [
+        "Aditi Raghunathan",
+        "Prateek Jain",
+        "Ravishankar Krishnaswamy"
+      ],
+      "venue": "NeurIPS",
+      "year": "2017",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Estimating the Unseen from Multiple Populations",
+      "url": "https://arxiv.org/pdf/1707.03854.pdf",
+      "authors": [
+        "Aditi Raghunathan",
+        "Greg Valiant",
+        "James Zou"
+      ],
+      "venue": "ICML",
+      "year": "2017",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Estimation from Indirect Supervision with Linear Moments",
+      "url": "https://arxiv.org/pdf/1608.03100.pdf",
+      "authors": [
+        "Aditi Raghunathan",
+        "Roy Frostig",
+        "John Duchi",
+        "Percy Liang"
+      ],
+      "venue": "ICML",
+      "year": "2016",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "A Reinforcement Learning Approach to Online Learning of Decision Trees",
+      "url": "https://arxiv.org/pdf/1507.06923.pdf",
+      "authors": [
+        "Abhinav Garlapati",
+        "Aditi Raghunathan",
+        "Vaishnavh Nagarajan",
+        "Balaraman Ravindran"
+      ],
+      "venue": "EWRL",
+      "year": "2015",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Probabilistic Dependency Networks for Prediction and Diagnostics",
+      "url": "https://arxiv.org/pdf/1508.03130.pdf",
+      "authors": [
+        "Narayanan U. Edakunni",
+        "Aditi Raghunathan",
+        "Abhishek Tripathi",
+        "John Handley",
+        "Fredric Roulland"
+      ],
+      "venue": "TRB Annual Meeting",
+      "year": "2014",
+      "awards": [],
+      "enabled": true
+    }
+  ]
+}
