@@ -10,13 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	{ date: '[May 2025]', content: 'Congratulations to Jacob and Sachin for two best paper awards at ICLR workshops for their work on <a href = "https://arxiv.org/abs/2503.19206"> catastrophic overtraining</a>.', highlights:['two best paper awards']},
 	{ date: '[May 2025]', content: 'Sachin and Christina presented their work on context-parametric inversion as an oral at ICLR 2025' },
 	{ date: '[May 2025]', content: 'Tanishq Kumar presented our work on scaling laws for precision as an oral at ICLR 2025' },
-	
-      { date: '2024-03-30', content: 'Our research was featured in a major science magazine.' },
-      { date: '2024-05-01', content: 'We published a new paper on AI in healthcare.' },
-      { date: '2024-05-01', content: 'We published a new paper on AI in healthcare.' },
-      { date: '2024-03-30', content: 'Our research was featured in a major science magazine.' },
-      { date: '2024-05-01', content: 'We published a new paper on AI in healthcare.' },
-      { date: '2024-05-01', content: 'We published a new paper on AI in healthcare.' }
     // …etc…
   ];
 
