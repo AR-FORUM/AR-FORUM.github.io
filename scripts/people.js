@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
               name: "Ziqian Zhong",
               photo: "images/member_photos/ziqian_zhong.png",
               website: "https://fjzzq2002.github.io/",
-              interests: "Robustness, understanding internal state of neural networks"
+              interests: "Interpretability and AI safety"
 	  },
 	  
     ],
