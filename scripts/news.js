@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
   newsList.style.overflowY  = 'scroll';
 
     const newsItems = [
-	{ date: '[July 2025]', content: 'Check out our oral presentation on creativity of language models at ICML 2025.' },
+	{ date: '[July 2025]', content: 'Aditi is giving two ICML workshop talks at <a href = "https://dataworldicml2025.github.io/index.html"> DataWorld: Unifying Data Curation Frameworks Across Domains </a> and <a href = "https://sites.google.com/view/moss2025/"> Methods and Opportunities at Small Scale</a>.' },
+	{ date: '[July 2025]', content: 'Check out our oral presentation on <a href = "https://arxiv.org/pdf/2504.15266"> creativity </a>of language models at ICML 2025.', highlights:['oral'] },
 	{ date: '[May 2025]', content: 'Congratulations to Jacob and Sachin for two best paper awards at ICLR workshops for their work on <a href = "https://arxiv.org/abs/2503.19206"> catastrophic overtraining</a>.', highlights:['two best paper awards']},
-	{ date: '[May 2025]', content: 'Sachin and Christina presented their work on context-parametric inversion as an oral at ICLR 2025' },
-	{ date: '[May 2025]', content: 'Tanishq Kumar presented our work on scaling laws for precision as an oral at ICLR 2025' },
-    // …etc…
+	{ date: '[May 2025]', content: 'Sachin and Christina presented their work on <a href = "https://arxiv.org/pdf/2410.10796"> context-parametric inversion </a> as an oral at ICLR 2025', highlights:['oral']},
+	{ date: '[May 2025]', content: 'Tanishq Kumar presented our work on <a href = "https://arxiv.org/pdf/2411.04330"> scaling laws for precision </a> as an oral at ICLR 2025', highlights:['oral'] },
+	{ date: '[Dec 2024]', content: 'Aditi receives the Okawa Research Grant'},
   ];
 
   newsItems.forEach(item => {
