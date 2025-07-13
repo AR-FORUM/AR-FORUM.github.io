@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const newsList = document.getElementById('newsList');
   
-  // Re-enforce scrolling (in case CSS was overridden)
-  newsList.style.maxHeight = '200px';
-  newsList.style.overflowY  = 'scroll';
-
     const newsItems = [
 	{ date: '[July 2025]', content: 'Aditi is giving two ICML workshop talks at <a href = "https://dataworldicml2025.github.io/index.html"> DataWorld: Unifying Data Curation Frameworks Across Domains </a> and <a href = "https://sites.google.com/view/moss2025/"> Methods and Opportunities at Small Scale</a>.' },
 	{ date: '[July 2025]', content: 'Check out our oral presentation on <a href = "https://arxiv.org/pdf/2504.15266"> creativity </a>of language models at ICML 2025.', highlights:['oral'] },
