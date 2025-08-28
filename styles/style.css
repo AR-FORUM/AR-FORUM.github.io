@@ -14,7 +14,7 @@
 }
 
 .active-link {
-    background-color:; /* Red border for the active link */
+    background-color:var(--lightbg); /* Red border for the active link */
     padding: 10px;
     border-radius: 4px;
 }

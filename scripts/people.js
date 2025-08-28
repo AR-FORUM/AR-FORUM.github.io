@@ -6,32 +6,35 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Christina Baek",
           photo: "images/member_photos/christina_baek.png",
           website: "https://kebaek.github.io/",
-          interests: "Robustness, understanding internal state of neural networks"
+          interests: ""
       },
 	  {
               name: "Jacob Springer",
               photo: "images/member_photos/jacob_springer.png",
               website: "https://sprin.xyz/",
-              interests: "Robustness, understanding internal state of neural networks"
+              interests: ""
 	  },
 	  {
               name: "Gaurav Ghosal",
               photo: "images/member_photos/gaurav_ghosal.png",
               website: "grghosal.github.io",
-              interests: "Robustness, understanding internal state of neural networks"
+              interests: ""
 	  },  
 	  {
               name: "Chen Wu",
               photo: "images/member_photos/chen_wu.png",
               website: "https://chenwu.io/",
-              interests: "Robustness, understanding internal state of neural networks"
-	  },
+              interests: ""	  },
 	  {
               name: "Ziqian Zhong",
               photo: "images/member_photos/ziqian_zhong.png",
               website: "https://fjzzq2002.github.io/",
-              interests: "Interpretability and AI safety"
-	  },
+              interests: ""	  },
+    {
+            name: "Sachin Goyal",
+            photo: "images/member_photos/sachin_goyal.png",
+            website: "https://saching007.github.io/",
+            interests: ""    }
 	  
     ],
     extendedGroup: [
@@ -57,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${item.photo}" alt="${item.name}" class="person-image">
         <div class="person-info">
           <h2><a href="${item.website}" target="_blank">${item.name}</a></h2>
-          <p>${item.interests}</p>
+          <p style="font-size:15px;">${item.interests}</p>
         </div>
       </div>
     `;
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${item.photo}" alt="${item.name}" class="person-image">
         <div class="person-info">
           <h2>${item.name}</h2>
-          <p>${item.program}, ${item.advisedBy}</p>
+          <p style="font-size:15px;">${item.program}, ${item.advisedBy}</p>
         </div>
       </div>
     `;
