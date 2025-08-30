@@ -1,15 +1,4 @@
 {
-  "preprints": [    
-    {
-      "title": "AutoFT: Learning an Objective for Robust Fine-Tuning",
-      "url": "https://arxiv.org/pdf/2401.10220.pdf",
-      "authors": [],
-      "venue": "",
-      "year": "",
-      "awards": [],
-      "enabled": false
-    }
-  ],
   "publications": [
     {
       "title": "Overtrained Language Models Are Harder to Fine-Tune",
@@ -46,14 +35,17 @@
       "awards": [
         "Spotlight"
       ],
-      "enabled": true
+      "enabled": true,
+      "code": "https://github.com/chenwu98/algorithmic-creativity"
     },
     {
       "title": "Disentangling Sequence Memorization and General Capability in LLMs",
       "url": null,
-	"authors": ["Gaurav Ghosal",
-		    "Pratyush Maini",
-		   "Aditi Raghunathan"],
+      "authors": [
+        "Gaurav Ghosal",
+        "Pratyush Maini",
+        "Aditi Raghunathan"
+      ],
       "venue": "ICML",
       "year": "2025",
       "awards": [],
@@ -80,59 +72,58 @@
       ],
       "enabled": true
     },
-      {
-	  "title": "Weight Ensembling Improves Reasoning in Language Models",
-	  "url": "https://arxiv.org/pdf/2504.10478",
-	  "authors": [
-              "Xingyu Dang",
-              "Christina Baek",
-              "Kaiyue Wen",
-              "Zico Kolter",
-              "Aditi Raghunathan"
-	  ],
-	  "venue": "arXiv",
-	  "year": "2025",
-	  "awards": [],
-	  "enabled": true
-      },
-
-      {
-	  "title": "Exact Unlearning of Finetuning Data via Model Merging at Scale",
-	  "url": "https://arxiv.org/pdf/2504.04626",
-	  "authors": [
-              "Kevin Kuo",
-              "Amrith Setlur",
-              "Kartik Srinivas",
-              "Aditi Raghunathan",
-              "Virginia Smith"
-	  ],
-	  "venue": "arXiv",
-	  "year": "2025",
-	  "awards": [],
-	  "enabled": true
-      },
-      {
-	  "title": "Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions",
-	  "url": "https://arxiv.org/pdf/2503.03862v1",
-	  "authors":["Emmy Liu",
-		     "Amanda Bertsch",
-		     "Lintang Sutawika",
-		     "Lindia Tjuatja",
-		     "Patric Fernandes",
-		     "Lara Marinov",
-		     "Michael Chen",
-		     "Shreya Singhal",
-		     "Carolin Lawrence",
-		     "Aditi Raghunathan",
-		     "Kiril Gashteovski",
-		     "Graham Neubig"],
-	  "venue": "arXiv",
-	  "year": "2025",
-	  "awards": [],
-	  "enabled": true
-      }, 
-
-
+    {
+      "title": "Weight Ensembling Improves Reasoning in Language Models",
+      "url": "https://arxiv.org/pdf/2504.10478",
+      "authors": [
+        "Xingyu Dang",
+        "Christina Baek",
+        "Kaiyue Wen",
+        "Zico Kolter",
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Exact Unlearning of Finetuning Data via Model Merging at Scale",
+      "url": "https://arxiv.org/pdf/2504.04626",
+      "authors": [
+        "Kevin Kuo",
+        "Amrith Setlur",
+        "Kartik Srinivas",
+        "Aditi Raghunathan",
+        "Virginia Smith"
+      ],
+      "venue": "arXiv",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
+    {
+      "title": "Not-Just-Scaling Laws: Towards a Better Understanding of the Downstream Impact of Language Model Design Decisions",
+      "url": "https://arxiv.org/pdf/2503.03862v1",
+      "authors": [
+        "Emmy Liu",
+        "Amanda Bertsch",
+        "Lintang Sutawika",
+        "Lindia Tjuatja",
+        "Patric Fernandes",
+        "Lara Marinov",
+        "Michael Chen",
+        "Shreya Singhal",
+        "Carolin Lawrence",
+        "Aditi Raghunathan",
+        "Kiril Gashteovski",
+        "Graham Neubig"
+      ],
+      "venue": "arXiv",
+      "year": "2025",
+      "awards": [],
+      "enabled": true
+    },
     {
       "title": "Context-Parametric Inversion: Why Instruction Finetuning May Not Actually Improve Context Reliance",
       "url": "https://arxiv.org/pdf/2410.10796",
@@ -147,7 +138,8 @@
       "awards": [
         "Oral"
       ],
-      "enabled": true
+      "enabled": true,
+      "code": "https://github.com/locuslab/context-parametric-inversion"
     },
     {
       "title": "Dissecting Adversarial Robustness of Multimodal Agents",
@@ -162,7 +154,7 @@
       "venue": "ICLR",
       "year": "2025",
       "awards": [
-          "Oral at Open World Agents Workshop at NeurIPS 2024"
+        "Oral at Open World Agents Workshop at NeurIPS 2024"
       ],
       "enabled": true
     },
@@ -182,34 +174,34 @@
       "enabled": true
     },
     {
-	"title": "Understanding the Influence of Synthetic Data for Text Embedders",
-	"url": null,
-	"authors": ["Jacob Mitchell Springer",
-		    "Vaibhav Adlakha",
-		    "Siva Reddy",
-		    "Aditi Raghunathan",
-		    "Marius Mosbach"
-		   ],
-	"venue": "ACL Findings",
-	"year": 2025,
-	"awards": [],
-	"enabled": true
+      "title": "Understanding the Influence of Synthetic Data for Text Embedders",
+      "url": null,
+      "authors": [
+        "Jacob Mitchell Springer",
+        "Vaibhav Adlakha",
+        "Siva Reddy",
+        "Aditi Raghunathan",
+        "Marius Mosbach"
+      ],
+      "venue": "ACL Findings",
+      "year": 2025,
+      "awards": [],
+      "enabled": true
     },
-      
     {
-	"title": "Mitigating Bias in RAG: Controlling the Embedder",
-	"url": "https://arxiv.org/pdf/2502.17390",
-	"authors": ["Taeyoun Kim",
-		    "Jacob Mitchell Springer",
-		    "Aditi Raghunathan",
-		    "Maarten Sap"
-		   ],
-	"venue": "ACL Findings",
-	"year": 2025,
-	"awards": [],
-	"enabled": true
-    }, 
-      
+      "title": "Mitigating Bias in RAG: Controlling the Embedder",
+      "url": "https://arxiv.org/pdf/2502.17390",
+      "authors": [
+        "Taeyoun Kim",
+        "Jacob Mitchell Springer",
+        "Aditi Raghunathan",
+        "Maarten Sap"
+      ],
+      "venue": "ACL Findings",
+      "year": 2025,
+      "awards": [],
+      "enabled": true
+    },
     {
       "title": "Theory of Agreement-on-the-Line in Linear Models and Gaussian Data",
       "url": "https://openreview.net/attachment?id=cUTzrd9mIA&name=pdf",

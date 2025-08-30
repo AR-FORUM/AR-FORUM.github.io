@@ -1,104 +1,161 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const publications = [
-      {
-          title:'Repetition Improves Language Model Embeddings', 
-          authors:'Jacob Mitchell Springer, Suhas Kotha, Daniel Fried, Graham Neubig, Aditi Raghunathan',
-          conference: 'ICLR 2024',
-          awards: '',
-          links: {pdf:'https://arxiv.org/pdf/2402.15449'},
-          category: 'Feature Learning'
-      },
+document.addEventListener('DOMContentLoaded', function () {
+    // Fetch publications from publications.json and display with tabs
+    fetch('publications.json')
+        .then(response => response.json())
+        .then(data => {
+            // Merge preprints and publications arrays
+            const publications = [
+                ...(data.preprints || []),
+                ...(data.publications || [])
+            ];
 
-      {
-          title: 'Robust Machine Learning Models',
-          authors: 'John Doe, Jane Smith',
-          conference: 'ICML 2024',
-          awards: 'Best Paper Award',
-          links: {
-              pdf: 'http://example.com/paper.pdf',
-              code: 'http://example.com/code'
-          },
-          category: 'Machine Learning'
-      },
-      {
-          title: 'Advances in AI',
-          authors: 'Alice Johnson, Bob Brown',
-          conference: 'NeurIPS 2023',
-          awards: 'Outstanding Paper',
-          links: {
-              pdf: 'http://example.com/ai_paper.pdf',
-              code: 'http://example.com/ai_code'
-          },
-          category: 'Artificial Intelligence'
-      }
-      // Add more publications as needed
-  ];
+            // Get all unique categories (if any)
+            const categories = Array.from(new Set(
+                publications
+                    .map(pub => pub.venue ? pub.venue.trim() : null)
+                    .filter(Boolean)
+            ));
 
-  const categories = [...new Set(publications.map(pub => pub.category))];
-  const buttonsContainer = document.querySelector('.category-buttons');
-  const publicationsList = document.querySelector('.publications-list');
+            const buttonsContainer = document.querySelector('.category-buttons');
+            const publicationsList = document.querySelector('.publications-list');
 
-  function renderPublications(filteredPublications) {
-      publicationsList.innerHTML = '';
-      filteredPublications.forEach(pub => {
-          const div = document.createElement('div');
-          div.classList.add('publication-item');
+            function renderPublications(filteredPublications) {
+                publicationsList.innerHTML = '';
+                filteredPublications.forEach(pub => {
+                    // Create a unique anchor id for each paper based on a slugified title
+                    const anchorId = 'pub-' + pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
-          const title = document.createElement('h3');
-          title.classList.add('publication-title');
-          title.textContent = pub.title;
+                    const div = document.createElement('div');
+                    div.classList.add('publication-item');
+                    div.style.margin = '1.1em 0 1.2em 0';
+                    div.id = anchorId;
 
-          const awards = document.createElement('p');
-          awards.classList.add('publication-awards');
-          awards.textContent = `${pub.awards}`;
+                    // Title (with link if available)
+                    const title = document.createElement('div');
+                    title.classList.add('publication-title');
+                    title.style.margin = '0.2em 0 0.1em 0';
+                    title.style.fontSize = '1.1em';
+                    title.style.fontWeight = 'bold';
+                    title.style.color = '#174ea6';
+                    // Add anchor link icon to the left of the title
+                    const anchorLink = document.createElement('a');
+                    anchorLink.href = '#' + anchorId;
+                    anchorLink.title = 'Link to this paper';
+                    anchorLink.style.marginRight = '0.3em';
+                    anchorLink.style.textDecoration = 'none';
+                    anchorLink.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#174ea6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 1 7.07 0l1.41 1.41a5 5 0 0 1 0 7.07 5 5 0 0 1-7.07 0l-1.41-1.41"/><path d="M14 11a5 5 0 0 0-7.07 0l-1.41 1.41a5 5 0 0 0 0 7.07 5 5 0 0 0 7.07 0l1.41-1.41"/></svg>';
 
-          const authors = document.createElement('p');
-          authors.classList.add('publication-authors');
-          authors.textContent = `${pub.authors}`;
+                    // Title text (with link to PDF if available)
+                    let titleText;
+                    if (pub.url) {
+                        titleText = document.createElement('a');
+                        titleText.href = pub.url;
+                        titleText.target = '_blank';
+                        titleText.textContent = pub.title;
+                        titleText.style.color = '#174ea6';
+                        titleText.style.textDecoration = 'none';
+                        titleText.style.fontWeight = 'bold';
+                    } else {
+                        titleText = document.createElement('span');
+                        titleText.textContent = pub.title;
+                    }
+                    title.appendChild(anchorLink);
+                    title.appendChild(titleText);
 
-          const conference = document.createElement('p');
-          conference.classList.add('publication-conference');
-          conference.textContent = `${pub.conference}`;
+                    // Authors
+                    const authors = document.createElement('div');
+                    authors.classList.add('publication-authors');
+                    authors.style.margin = '0 0 0.1em 0';
+                    authors.style.fontSize = '1em';
+                    if (Array.isArray(pub.authors)) {
+                        authors.textContent = pub.authors.join(', ');
+                    } else {
+                        authors.textContent = pub.authors || '';
+                    }
 
-          const links = document.createElement('p');
-          links.classList.add('publication-links');
-          links.innerHTML = `<a href="${pub.links.pdf}" target="_blank">PDF</a>, <a href="${pub.links.code}" target="_blank">Code</a>`;
+                    // Venue/Conference
+                    const venue = document.createElement('div');
+                    venue.classList.add('publication-venue');
+                    venue.style.margin = '0 0 0.1em 0';
+                    venue.style.fontStyle = 'italic';
+                    let venueText = '';
+                    if (pub.venue) venueText += pub.venue;
+                    if (pub.year) venueText += (venueText ? ' ' : '') + pub.year;
+                    venue.textContent = venueText;
 
-          // const category = document.createElement('p');
-          // category.classList.add('publication-category');
-          // category.textContent = `Category: ${pub.category}`;
+                    // Awards (Oral, Spotlight, etc.)
+                    const awards = document.createElement('div');
+                    awards.classList.add('publication-awards');
+                    awards.style.color = '#d32f2f';
+                    awards.style.margin = '0 0 0.1em 0';
+                    awards.style.fontWeight = '500';
+                    let oralSpotlight = '';
+                    if (Array.isArray(pub.awards) && pub.awards.length > 0) {
+                        // Only show if contains 'Oral', 'Spotlight', 'Outstanding', etc.
+                        const keywords = ['oral', 'spotlight', 'outstanding'];
+                        const found = pub.awards.find(a => keywords.some(k => a.toLowerCase().includes(k)));
+                        if (found) oralSpotlight = found;
+                    }
+                    awards.textContent = oralSpotlight;
 
-          div.appendChild(title);
-          div.appendChild(awards);
-          div.appendChild(authors);
-          div.appendChild(conference);
-          div.appendChild(links);
-          // div.appendChild(category);
+                    // GitHub icon for code link
+                    let githubIcon = null;
+                    if (pub.code) {
+                        githubIcon = document.createElement('a');
+                        githubIcon.href = pub.code;
+                        githubIcon.target = '_blank';
+                        githubIcon.style.marginLeft = '0.2em';
+                        githubIcon.style.verticalAlign = 'middle';
+                        githubIcon.innerHTML = `
+                                                        <svg height="18" width="18" viewBox="0 0 16 16" fill="#24292f" style="display:inline-block;vertical-align:middle;">
+                                                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                                        </svg>`;
+                    }
 
-          publicationsList.appendChild(div);
-      });
-  }
+                    div.appendChild(title);
+                    div.appendChild(authors);
+                    div.appendChild(venue);
+                    if (oralSpotlight) div.appendChild(awards);
+                    if (githubIcon) div.appendChild(githubIcon);
 
-  function createCategoryButtons() {
-      // Add a button to show all publications
-      const allButton = document.createElement('button');
-      allButton.textContent = 'All';
-      allButton.addEventListener('click', () => {
-          renderPublications(publications);
-      });
-      buttonsContainer.appendChild(allButton);
+                    publicationsList.appendChild(div);
+                });
+            }
 
-      categories.forEach(category => {
-          const button = document.createElement('button');
-          button.textContent = category;
-          button.addEventListener('click', () => {
-              const filteredPublications = publications.filter(pub => pub.category === category);
-              renderPublications(filteredPublications);
-          });
-          buttonsContainer.appendChild(button);
-      });
-  }
+            // Only show the 'All' tab for now
+            function createAllTab() {
+                buttonsContainer.innerHTML = '';
+                const allButton = document.createElement('button');
+                allButton.textContent = 'All';
+                allButton.classList.add('category-tab', 'active');
+                allButton.style.marginRight = '0.5em';
+                allButton.style.marginBottom = '1.5em';
+                allButton.style.background = '#e9d8fd';
+                allButton.style.border = 'none';
+                allButton.style.padding = '0.5em 1.5em';
+                allButton.style.borderRadius = '8px';
+                allButton.style.fontWeight = '500';
+                allButton.style.cursor = 'pointer';
+                allButton.style.fontSize = '1em';
+                allButton.addEventListener('click', () => {
+                    renderPublications(publications);
+                });
+                buttonsContainer.appendChild(allButton);
+            }
 
-  createCategoryButtons();
-  renderPublications(publications);  // Render all publications initially
+            createAllTab();
+            renderPublications(publications);
+
+            // If there is a hash in the URL, scroll to the anchor after rendering
+            if (window.location.hash) {
+                const anchorId = window.location.hash.substring(1);
+                // Use setTimeout to ensure DOM is updated
+                setTimeout(() => {
+                    const anchorElem = document.getElementById(anchorId);
+                    if (anchorElem) {
+                        anchorElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 0);
+            }
+        });
 });
