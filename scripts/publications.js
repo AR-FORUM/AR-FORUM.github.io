@@ -211,7 +211,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     abstract.style.transition = 'all 0.3s ease';
                     
                     if (pub.abstract) {
-                        abstract.innerHTML = `<strong>Abstract:</strong><br>${pub.abstract}`;
+                        // Render markdown with math support
+                        const markdownText = marked.parse(pub.abstract);
+                        abstract.innerHTML = `<strong>Abstract:</strong><br><div class="abstract-content">${markdownText}</div>`;
+                        
+                        // Process math after rendering
+                        if (window.MathJax && MathJax.typesetPromise) {
+                            MathJax.typesetPromise([abstract]).catch((err) => console.log('MathJax error:', err));
+                        }
                     } else {
                         abstract.innerHTML = '<em>Abstract not available</em>';
                         console.log(pub.title+' has no abstract!');
@@ -236,6 +243,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (isExpanded) {
                             abstract.style.display = 'block';
                             arrow.textContent = ' ▲';
+                            
+                            // Re-process math when abstract becomes visible
+                            if (window.MathJax && MathJax.typesetPromise) {
+                                MathJax.typesetPromise([abstract]).catch((err) => console.log('MathJax error:', err));
+                            }
                         } else {
                             abstract.style.display = 'none';
                             arrow.textContent = ' ▼';

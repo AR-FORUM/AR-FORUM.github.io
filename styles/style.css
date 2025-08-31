@@ -378,3 +378,19 @@ footer {
 .category-buttons button:focus {
   outline: none;
 }
+
+/* Abstract content styling - override global p styles */
+.abstract-content p {
+  font-size: 0.95em !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  margin: 0.5em 0 !important;
+}
+
+.abstract-content p:first-child {
+  margin-top: 0 !important;
+}
+
+.abstract-content p:last-child {
+  margin-bottom: 0 !important;
+}
