@@ -306,11 +306,8 @@ footer {
 
 /* Publications */
 .publications-widget {
-  width: 90%;  /* Adjust as needed */
-  border: 2px solid #f5eded;
+  width: 100%;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin: 20px auto;
 }
 
@@ -321,13 +318,11 @@ footer {
 }
 
 .publications-list {
-  max-height: 1000px;  /* Adjust as needed for desired height */
-  overflow-y: auto;
+  /* No height restrictions - let content flow naturally */
 }
 
 .publication-item {
-  border-bottom: 1px solid #ddd;
-  padding: 15px 0;
+  padding: 0.5em 0;
 }
 
 .publication-item:last-child {

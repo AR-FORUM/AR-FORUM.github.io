@@ -9,31 +9,73 @@ document.addEventListener('DOMContentLoaded', function () {
                 ...(data.publications || [])
             ];
 
-            // Get all unique categories (if any)
-            const categories = Array.from(new Set(
+            // Get all unique years
+            const years = Array.from(new Set(
                 publications
-                    .map(pub => pub.venue ? pub.venue.trim() : null)
+                    .map(pub => pub.year)
                     .filter(Boolean)
-            ));
+            )).sort((a, b) => b - a); // Sort years in descending order
 
             const buttonsContainer = document.querySelector('.category-buttons');
             const publicationsList = document.querySelector('.publications-list');
 
-            function renderPublications(filteredPublications) {
+            function renderPublicationsByYear() {
                 publicationsList.innerHTML = '';
-                filteredPublications.forEach(pub => {
+                
+                // Group publications by year
+                const publicationsByYear = {};
+                publications.forEach(pub => {
+                    const year = pub.year || 'Unknown';
+                    if (!publicationsByYear[year]) {
+                        publicationsByYear[year] = [];
+                    }
+                    publicationsByYear[year].push(pub);
+                });
+                
+                // Sort years in descending order
+                const sortedYears = Object.keys(publicationsByYear).sort((a, b) => {
+                    if (a === 'Unknown') return 1;
+                    if (b === 'Unknown') return -1;
+                    return parseInt(b) - parseInt(a);
+                });
+
+                let isFirst = true;
+                
+                // Render each year section
+                sortedYears.forEach(year => {
+                    // Create year header
+                    const yearHeader = document.createElement('h2');
+                    yearHeader.textContent = year;
+                    if(isFirst) {
+                        isFirst = false;
+                    }
+                    else {
+                        yearHeader.style.paddingTop = '0.5em';
+                    }
+                    // yearHeader.style.borderBottom = '2px solid #ddd';
+                    yearHeader.style.marginBottom = '0.5em';
+                    publicationsList.appendChild(yearHeader);
+                    
+                    // Render publications for this year
+                    publicationsByYear[year].forEach(pub => {
+                        renderSinglePublication(pub);
+                    });
+                });
+            }
+            
+            function renderSinglePublication(pub) {
                     // Create a unique anchor id for each paper based on a slugified title
                     const anchorId = 'pub-' + pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
                     const div = document.createElement('div');
                     div.classList.add('publication-item');
-                    div.style.margin = '1.1em 0 1.2em 0';
+                    div.style.margin = '0 0 1em 0';
                     div.id = anchorId;
 
                     // Title (with link if available)
                     const title = document.createElement('div');
                     title.classList.add('publication-title');
-                    title.style.margin = '0.2em 0 0.1em 0';
+                    title.style.margin = '0.0em 0 0.1em 0';
                     title.style.fontSize = '1.1em';
                     title.style.fontWeight = 'bold';
                     title.style.color = '#174ea6';
@@ -119,12 +161,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (githubIcon) div.appendChild(githubIcon);
 
                     publicationsList.appendChild(div);
-                });
             }
 
-            // Only show the 'All' tab for now
-            function createAllTab() {
+            // Create year-based tabs
+            function createYearTabs() {
                 buttonsContainer.innerHTML = '';
+                
+                // Add "All" tab first
                 const allButton = document.createElement('button');
                 allButton.textContent = 'All';
                 allButton.classList.add('category-tab', 'active');
@@ -138,13 +181,52 @@ document.addEventListener('DOMContentLoaded', function () {
                 allButton.style.cursor = 'pointer';
                 allButton.style.fontSize = '1em';
                 allButton.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.category-tab').forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.background = '#f5f5f5';
+                    });
+                    // Add active class to clicked button
+                    allButton.classList.add('active');
+                    allButton.style.background = '#e9d8fd';
                     renderPublications(publications);
                 });
                 buttonsContainer.appendChild(allButton);
+                
+                // Add year tabs
+                years.forEach(year => {
+                    const yearButton = document.createElement('button');
+                    yearButton.textContent = year.toString();
+                    yearButton.classList.add('category-tab');
+                    yearButton.style.marginRight = '0.5em';
+                    yearButton.style.marginBottom = '1.5em';
+                    yearButton.style.background = '#f5f5f5';
+                    yearButton.style.border = 'none';
+                    yearButton.style.padding = '0.5em 1.5em';
+                    yearButton.style.borderRadius = '8px';
+                    yearButton.style.fontWeight = '500';
+                    yearButton.style.cursor = 'pointer';
+                    yearButton.style.fontSize = '1em';
+                    yearButton.addEventListener('click', () => {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.category-tab').forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.style.background = '#f5f5f5';
+                        });
+                        // Add active class to clicked button
+                        yearButton.classList.add('active');
+                        yearButton.style.background = '#e9d8fd';
+                        // Filter publications by year
+                        const filteredPubs = publications.filter(pub => pub.year === year);
+                        renderPublications(filteredPubs);
+                    });
+                    buttonsContainer.appendChild(yearButton);
+                });
             }
 
-            createAllTab();
-            renderPublications(publications);
+            // Hide the category buttons since we're using year headers instead
+            buttonsContainer.style.display = 'none';
+            renderPublicationsByYear();
 
             // If there is a hash in the URL, scroll to the anchor after rendering
             if (window.location.hash) {
