@@ -70,7 +70,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     const div = document.createElement('div');
                     div.classList.add('publication-item');
                     div.style.margin = '0 0 1em 0';
+                    div.style.padding = '1em';
+                    div.style.borderRadius = '8px';
+                    div.style.cursor = 'pointer';
+                    div.style.transition = 'all 0.2s ease';
+                    div.style.border = '1px solid transparent';
                     div.id = anchorId;
+                    
+                    // Add hover effect (border only, no background change)
+                    div.addEventListener('mouseenter', () => {
+                        div.style.border = '1px solid #aaa';
+                    });
+                    
+                    div.addEventListener('mouseleave', () => {
+                        div.style.border = '1px solid transparent';
+                    });
 
                     // Title (with link if available)
                     const title = document.createElement('div');
@@ -101,8 +115,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         titleText = document.createElement('span');
                         titleText.textContent = pub.title;
                     }
+                    
+                    // Add expand/collapse arrow
+                    const arrow = document.createElement('span');
+                    arrow.textContent = ' ▼';
+                    arrow.style.fontSize = '0.8em';
+                    arrow.style.color = '#666';
+                    arrow.style.marginLeft = '0.5em';
+                    
                     title.appendChild(anchorLink);
                     title.appendChild(titleText);
+                    title.appendChild(arrow);
 
                     // Authors
                     const authors = document.createElement('div');
@@ -115,15 +138,48 @@ document.addEventListener('DOMContentLoaded', function () {
                         authors.textContent = pub.authors || '';
                     }
 
-                    // Venue/Conference
+                    // Venue/Conference with GitHub link
                     const venue = document.createElement('div');
                     venue.classList.add('publication-venue');
                     venue.style.margin = '0 0 0.1em 0';
                     venue.style.fontStyle = 'italic';
+                    venue.style.display = 'flex';
+                    venue.style.alignItems = 'center';
+                    
                     let venueText = '';
                     if (pub.venue) venueText += pub.venue;
                     if (pub.year) venueText += (venueText ? ' ' : '') + pub.year;
-                    venue.textContent = venueText;
+                    
+                    const venueTextSpan = document.createElement('span');
+                    venueTextSpan.textContent = venueText;
+                    venue.appendChild(venueTextSpan);
+                    
+                    // Add GitHub icon after venue if available
+                    if (pub.code) {
+                        const githubIconInVenue = document.createElement('a');
+                        githubIconInVenue.href = pub.code;
+                        githubIconInVenue.target = '_blank';
+                        githubIconInVenue.style.marginLeft = '0.5em';
+                        githubIconInVenue.style.verticalAlign = 'middle';
+                        githubIconInVenue.style.transition = 'all 0.2s ease';
+                        
+                        githubIconInVenue.innerHTML = `
+                            <svg height="18" width="18" viewBox="0 0 16 16" fill="#24292f" style="display:inline-block;vertical-align:middle;transition:fill 0.2s ease;">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>`;
+                        
+                        // Add hover effect by selecting the SVG inside
+                        const svgElement = githubIconInVenue.querySelector('svg');
+                        githubIconInVenue.addEventListener('mouseenter', () => {
+                            svgElement.setAttribute('fill', '#666');
+                        });
+                        
+                        githubIconInVenue.addEventListener('mouseleave', () => {
+                            svgElement.setAttribute('fill', '#24292f');
+                        });
+                        
+                        venue.appendChild(githubIconInVenue);
+                    }
 
                     // Awards (Oral, Spotlight, etc.)
                     const awards = document.createElement('div');
@@ -140,25 +196,51 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     awards.textContent = oralSpotlight;
 
-                    // GitHub icon for code link
-                    let githubIcon = null;
-                    if (pub.code) {
-                        githubIcon = document.createElement('a');
-                        githubIcon.href = pub.code;
-                        githubIcon.target = '_blank';
-                        githubIcon.style.marginLeft = '0.2em';
-                        githubIcon.style.verticalAlign = 'middle';
-                        githubIcon.innerHTML = `
-                                                        <svg height="18" width="18" viewBox="0 0 16 16" fill="#24292f" style="display:inline-block;vertical-align:middle;">
-                                                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                                        </svg>`;
+
+                    // Abstract (initially hidden)
+                    const abstract = document.createElement('div');
+                    abstract.classList.add('publication-abstract');
+                    abstract.style.marginTop = '1em';
+                    abstract.style.padding = '1em';
+                    abstract.style.backgroundColor = '#f9f9f9';
+                    abstract.style.borderRadius = '4px';
+                    abstract.style.fontSize = '0.95em';
+                    abstract.style.lineHeight = '1.5';
+                    abstract.style.display = 'none';
+                    abstract.style.overflow = 'hidden';
+                    abstract.style.transition = 'all 0.3s ease';
+                    
+                    if (pub.abstract) {
+                        abstract.innerHTML = `<strong>Abstract:</strong><br>${pub.abstract}`;
+                    } else {
+                        abstract.innerHTML = '<em>Abstract not available</em>';
+                        console.log(pub.title+' has no abstract!');
                     }
 
                     div.appendChild(title);
                     div.appendChild(authors);
                     div.appendChild(venue);
                     if (oralSpotlight) div.appendChild(awards);
-                    if (githubIcon) div.appendChild(githubIcon);
+                    div.appendChild(abstract);
+                    
+                    // Add click handler for expand/collapse
+                    let isExpanded = false;
+                    div.addEventListener('click', (e) => {
+                        // Prevent expansion when clicking on links
+                        if (e.target.tagName === 'A' || e.target.closest('a')) {
+                            return;
+                        }
+                        
+                        isExpanded = !isExpanded;
+                        
+                        if (isExpanded) {
+                            abstract.style.display = 'block';
+                            arrow.textContent = ' ▲';
+                        } else {
+                            abstract.style.display = 'none';
+                            arrow.textContent = ' ▼';
+                        }
+                    });
 
                     publicationsList.appendChild(div);
             }
