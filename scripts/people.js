@@ -72,14 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, { name: "Ashish Ramayee Asokan"}, 
-      { name: "Shashwat Saxena"}, { name: "Arnav Goel"}, { name: "Manan Agarwal"}, { name: "Ishaan Watts"}
+      { name: "Neil Kale"}, { name: "Manan Agarwal"}, { name: "Ashish Ramayee Asokan"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
+      { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, 
     ],
     alumni: [
       { name: "Tanishq Kumar",  prevPosition: "Undergrad at Harvard",  nextPosition: "PhD at Stanford", note: "" },
+      { name: "Taeyoun Kim",     prevPosition: "Masters at CMU", nextPosition: "Researcher at CMU", note: "" },
       { name: "Charles Ding",   prevPosition: "Undergrad at CMU",      nextPosition: "Masters at Stanford", note: "" },
-      { name: "Suhas Kotha",    prevPosition: "Undergrad at CMU",      nextPosition: "PhD at Stanford University", note: "co-advised" },
-      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU, co-advised with Nihar Shah", nextPosition: "Software engineer at Syllo", note: "" },
+      { name: "Suhas Kotha",    prevPosition: "Undergrad at CMU",      nextPosition: "PhD at Stanford University"},
+      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU, co-advised with Nihar Shah", nextPosition: "Software engineer at Syllo", note: "co-advised with Nihar Shah" },
       { name: "Aman Mehra",     prevPosition: "Masters at CMU",        nextPosition: "ML scientist at Tesla", note: "" },
       { name: "Erik Jones",     prevPosition: "Undergrad at Stanford", nextPosition: "PhD at Berkeley", note: "" }
     ]
