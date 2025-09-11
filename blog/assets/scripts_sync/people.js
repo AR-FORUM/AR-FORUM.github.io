@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       justify-items: start;
       align-items: start;
     }
-    @media (max-width: 640px) {
-      .people-grid { grid-template-columns: 1fr; }
-    }
 
     .person h2 {
       font-size: 18px;

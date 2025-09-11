@@ -127,14 +127,7 @@ section {
 }
 
 
-.lab-carousel {
-  width: 400px;
-  position: relative;
-  width: 50%;
-  aspect-ratio: 3 / 2;       /* Set consistent shape */
-  margin: 0 auto;
-  overflow: hidden;
-}
+/* Duplicate .lab-carousel definition removed - using the one above */
 
 /* All images occupy same space and are layered */
 .lab-image {
@@ -222,7 +215,8 @@ section {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 350px;
+  max-width: 350px;
+  width: 100%;
   height: auto;
 }
 
@@ -236,11 +230,12 @@ section {
 
 /* News */
 .news-widget {
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
   border: 0px solid var(--lightbg);
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 40px; /* Add this */
+  margin-bottom: 40px;
 }
 
 .news-widget h2 {
@@ -393,4 +388,123 @@ section {
 
 .abstract-content p:last-child {
   margin-bottom: 0 !important;
+}
+
+
+/* Responsive Design - Mobile First Approach */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header h1 {
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  nav ul {
+    font-size: 18px;
+  }
+  
+  nav ul li {
+    margin: 0 5px;
+  }
+  
+  /* Main headings */
+  h2 {
+    font-size: 24px;
+  }
+  
+  /* Hero section */
+  .hero-row {
+    padding: 0 10px;
+  }
+  
+  .lab-carousel {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  /* News widget */
+  .news-widget {
+    padding: 10px 0;
+  }
+  
+  .news-widget h2 {
+    font-size: 1.5em;
+  }
+  
+  /* People section */
+  .people-container {
+    gap: 0px;
+  }
+  
+  .person {
+    flex-direction: column;
+    text-align: center;
+    max-width: 280px;
+  }
+  
+  .person-image {
+    margin-bottom: 10px;
+  }
+  
+  /* Publications */
+  .publication-title {
+    font-size: 1.2em;
+  }
+  
+  .category-buttons button {
+    padding: 8px 15px;
+    margin: 3px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Very small screens */
+  header h1 {
+    font-size: 28px;
+  }
+  
+  nav ul {
+    font-size: 16px;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0px 5px;
+  }
+  
+  .layout {
+    padding: 0 0.5rem;
+  }
+  
+  section {
+    padding: 15px 0.5rem;
+  }
+  
+  /* Stack everything vertically */
+  .hero-row {
+    gap: 0px;
+  }
+  
+  .news-list {
+    max-height: 300px;
+  }
+  
+  /* Adjust footer for mobile */
+  .main-footer {
+    position: relative;
+    margin-top: 40px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .layout {
+    max-width: 1200px;
+  }
+  
+  section {
+    max-width: 1200px;
+  }
 }
