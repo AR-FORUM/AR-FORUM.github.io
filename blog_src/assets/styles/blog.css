@@ -1,0 +1,295 @@
+/* Blog-specific styles that complement the main site */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 1rem 80px;
+}
+
+/* Blog home styles */
+.blog-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Removed redundant blog title styling */
+
+/* Posts list */
+.posts-list {
+  margin-top: 0;
+}
+
+.post-preview {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 25px 0;
+}
+
+.post-preview:first-child {
+  padding-top: 10px;
+}
+
+.post-preview:last-child {
+  border-bottom: none;
+}
+
+.post-preview h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.post-preview h3 a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-preview h3 a:hover {
+  color: var(--primary-hover);
+}
+
+.post-preview time {
+  display: block;
+  font-size: 13px;
+  color: #999;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.post-preview p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+  margin: 0;
+}
+
+/* TLDR styling */
+.tldr, .post-tldr {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  padding: 12px 15px;
+  border-left: 3px solid var(--primary);
+  margin: 15px 0;
+}
+
+.tldr strong, .post-tldr strong {
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Individual post styles */
+.post {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blog-post-header {
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.blog-post-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 30px 0 12px;
+  line-height: 1.2;
+}
+
+.post-meta {
+  margin-bottom: 15px;
+}
+
+.post-meta time {
+  font-size: 14px;
+  color: #888;
+  font-weight: 300;
+  margin-right: 15px;
+}
+
+.category {
+  display: inline-block;
+  background-color: transparent;
+  color: #666;
+  padding: 3px 0;
+  font-size: 12px;
+  margin-left: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Post content */
+.post-content {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #222;
+}
+
+.post-content h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 40px 0 20px;
+  color: #111;
+}
+
+.post-content h3 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 30px 0 15px;
+  color: #222;
+}
+
+.post-content p {
+  margin: 20px 0;
+  text-align: justify;
+}
+
+.post-content a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.post-content a:hover {
+  color: var(--primary-hover);
+  border-bottom-color: var(--primary-hover);
+}
+
+.post-content ul, .post-content ol {
+  margin: 20px 0;
+  padding-left: 30px;
+}
+
+.post-content li {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: 20px;
+  margin: 30px 0;
+  color: #555;
+  font-style: italic;
+}
+
+/* Code blocks */
+.post-content pre {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.post-content code {
+  background-color: #f3f3f3;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Syntax highlighting */
+.highlight {
+  margin: 20px 0;
+}
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+/* Images in posts */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  border-radius: 4px;
+}
+
+/* Post footer */
+.post-footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+  text-align: left;
+}
+
+.post-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.post-footer a:hover {
+  color: var(--primary-hover);
+}
+
+/* Page layout (for About, etc.) */
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blog-page-header {
+  margin-bottom: 40px;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--lightbg);
+}
+
+.blog-page-header h1 {
+  font-size: 42px;
+  font-weight: 500;
+  margin: 40px 0 15px;
+}
+
+.page-content {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.page-content p {
+  margin: 20px 0;
+  text-align: justify;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-container h1 {
+    font-size: 35px;
+  }
+  
+  .blog-post-header h1 {
+    font-size: 32px;
+  }
+  
+  .post-preview h3 {
+    font-size: 24px;
+  }
+  
+  .post-content {
+    font-size: 17px;
+  }
+  
+  main {
+    padding: 20px 1rem 80px;
+  }
+}

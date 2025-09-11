@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="blog-container">
+  <div class="posts-list">
+    {% for post in site.posts %}
+    <article class="post-preview">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      {% if post.tldr %}
+      <p class="tldr"><strong>tl;dr:</strong> {{ post.tldr }}</p>
+      {% elsif post.excerpt %}
+      <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</div>
