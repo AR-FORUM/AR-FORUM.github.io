@@ -48,9 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
       font-size: 16px;
       color: black;
       text-align: left !important;
-      margin: 0;
-      padding-left: 9rem;
-      padding-right: 9rem;
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .extended-names {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
     }
   `;
   const style = document.createElement("style");
