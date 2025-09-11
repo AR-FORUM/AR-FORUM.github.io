@@ -1,0 +1,396 @@
+@import "font.css";
+
+:root {
+  --highlight: #000000;
+  --primary: rgb(0, 71, 171);
+  --primary-hover: rgb(0, 150, 255);
+  --lightbg: #f5f5f5
+}
+
+.layout {
+  max-width: 1000px;
+  margin: 0 auto;           /* center horizontally */
+  padding: 0 1rem;          /* small side padding for mobile */
+}
+
+.active-link {
+    /* background-color:var(--lightbg);
+    padding: 10px;
+    border-radius: 4px; */
+}
+body {
+  font-family:"palatino",serif;
+  text-align:justify;
+}
+
+.main-header {
+  background-color:var(--lightbg);
+  padding: 10px;
+  text-align: center;
+  font-family: "palatino", sans-serif;
+}
+
+header h1 {
+  font-size: 60px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  font-size: 25px;
+  font-weight: 300;
+  margin-top: 0px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:var(--primary);
+    border-bottom: 1px;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: var(--primary-hover);
+}
+
+.highlight {
+    color: var(--highlight);
+    text-decoration: italics;
+    font-weight:800
+}
+
+section {
+  padding: 20px 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.main-footer {
+  background-color: var(--lightbg);
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.hero-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+.lab-carousel {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 3 / 2;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.hero-text {
+  text-align: left;
+  max-width: 800px;
+}
+
+
+/* Define a fixed aspect ratio container */
+.image-box {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* or 16 / 9, 4 / 3 — choose what looks best */
+  top: 0;
+  left: 0;
+}
+
+
+.lab-carousel {
+  width: 400px;
+  position: relative;
+  width: 50%;
+  aspect-ratio: 3 / 2;       /* Set consistent shape */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* All images occupy same space and are layered */
+.lab-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* or 'contain' */
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+
+.dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #0047AB;  /* or your highlight color */
+}
+
+
+/* People */
+.person-info h2 {
+  margin: 0;
+  font-size: 1.2em;  /* Increased for clarity */
+}
+
+.person-info p {
+  margin: 0;
+  font-size: 1.1em;  /* Increased for clarity */
+}
+
+.person-info a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.person-info a:hover {
+  color: var(--primary-hover);
+}
+
+/* Make sure person-container layout works across all sizes */
+.person-info h2 {
+  margin: 0;
+  font-size: 1.2em;  /* Increased for clarity */
+}
+
+.person-info p {
+  margin: 0;
+  font-size: 1.1em;  /* Increased for clarity */
+}
+
+.person-info a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.person-info a:hover {
+  color: var(--primary-hover);
+}
+
+/* Make sure person-container layout works across all sizes */
+.people-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* increased gap */
+  margin: 0 auto;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 350px;
+  height: auto;
+}
+
+.person-image {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* News */
+.news-widget {
+  width: 800px;
+  border: 0px solid var(--lightbg);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 40px; /* Add this */
+}
+
+.news-widget h2 {
+  margin: 0 0 20px;
+  font-size: 2em;
+}
+
+.news-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Scrollbar style (optional) */
+.news-list::-webkit-scrollbar {
+  width: 8px;
+}
+.news-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 0.5rem;
+}
+
+.news-date {
+  white-space: nowrap;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.news-event {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.news-item:last-child {
+  margin-bottom: 0;
+}
+
+.news-content {
+  margin-left: 10px;
+}
+
+.news-event a {
+    text-decoration: none; 
+    color: var(--primary);
+}
+
+.news-event a:hover {
+    text-decoration: none;
+    color: var(--primary-hover);
+}
+
+
+/* Publications */
+.publications-widget {
+  width: 100%;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.publications-widget h2 {
+  margin: 0 0 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.publications-list {
+  /* No height restrictions - let content flow naturally */
+}
+
+.publication-item {
+  padding: 0.5em 0;
+}
+
+.publication-item:last-child {
+  border-bottom: none;
+}
+
+.publication-title {
+  font-size: 1.5em;
+  margin: 0 0 10px;
+}
+
+.publication-authors,
+.publication-conference,
+.publication-links,
+.publication-category {
+  margin: 5px 0;
+}
+.publication-awards {
+  margin: 5px 0;
+  color: #ff1515;
+}
+
+.publication-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.publication-links a:hover {
+  text-decoration: underline;  
+}
+
+/* Category Buttons */
+.category-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #eed7ff;
+  color: #0e0c3f;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.category-buttons button:hover {
+  background-color: #dd88f9;
+}
+
+.category-buttons button:focus {
+  outline: none;
+}
+
+/* Abstract content styling - override global p styles */
+.abstract-content p {
+  font-size: 0.95em !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  margin: 0.5em 0 !important;
+}
+
+.abstract-content p:first-child {
+  margin-top: 0 !important;
+}
+
+.abstract-content p:last-child {
+  margin-bottom: 0 !important;
+}

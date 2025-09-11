@@ -1,4 +1,4 @@
 .DS_Store
 blog/_site/
-blog/assets/scripts_sync/
-blog/assets/styles_sync/
+blog_src/assets/scripts_sync/
+blog_src/assets/styles_sync/
