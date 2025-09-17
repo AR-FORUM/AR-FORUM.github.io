@@ -73,10 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Chen Wu",         photo: "images/member_photos/chen_wu.png",         website: "https://chenwu.io/", interests: "" },
       { name: "Ziqian Zhong",    photo: "images/member_photos/ziqian_zhong.png",    website: "https://fjzzq2002.github.io/", interests: "" },
       { name: "Sachin Goyal",    photo: "images/member_photos/sachin_goyal.png",    website: "https://saching007.github.io/", interests: "", note:"collaborator"},
+      { name: "Pratyush Maini",    photo: "images/member_photos/pratyush_maini.png",    website: "https://pratyushmaini.github.io/", interests: "", note:"collaborator"},
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Neil Kale"}, { name: "Manan Agarwal"}, { name: "Ashish Ramayee Asokan"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
+      { name: "Neil Kale"}, { name: "Manan Agarwal"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
       { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, 
     ],
     alumni: [
