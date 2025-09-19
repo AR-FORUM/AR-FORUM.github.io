@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Neil Kale"}, { name: "Manan Agarwal"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
+      { name: "Neil Kale"}, { name: "Rishi Shah"}, { name: "Manan Agarwal"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
       { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, 
     ],
     alumni: [
