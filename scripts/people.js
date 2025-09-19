@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
       font-weight: 700;
     }
     .person p {
-      font-size: 15px;
+      font-size: 16px;
       margin: 0;
       line-height: 1.4;
     }
     .note {
-      font-size: 14px;
+      font-size: 12px;
       color: #555;
       font-style: italic;
       margin: 0 0 0.35rem 0;
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .person-info a {
       color: var(--primary, #0066cc);
       text-decoration: none;
+      font-size:22px;
     }
     .person-info a:hover { text-decoration: underline; }
 
     /* Extended group */
     .extended-names {
-      font-size: 16px;
       color: black;
       text-align: left !important;
       margin: 0 auto;
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Taeyoun Kim",     prevPosition: "Masters at CMU", nextPosition: "Researcher at CMU", note: "" },
       { name: "Charles Ding",   prevPosition: "Undergrad at CMU",      nextPosition: "Masters at Stanford", note: "" },
       { name: "Suhas Kotha",    prevPosition: "Undergrad at CMU",      nextPosition: "PhD at Stanford University"},
-      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU, co-advised with Nihar Shah", nextPosition: "Software engineer at Syllo", note: "co-advised with Nihar Shah" },
+      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU", nextPosition: "Software engineer at Syllo", note: "co-advised with Nihar Shah" },
       { name: "Aman Mehra",     prevPosition: "Masters at CMU",        nextPosition: "ML scientist at Tesla", note: "" },
       { name: "Erik Jones",     prevPosition: "Undergrad at Stanford", nextPosition: "PhD at Berkeley", note: "" }
     ]

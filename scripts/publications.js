@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 ...(data.preprints || []),
                 ...(data.publications || [])
             ];
+            // === ADD: cutoff + year-grouping helper ================================
+            const CUTOFF = 2021;
+            function yearGroup(y) {
+                if (!y) return 'Unknown';
+                const n = parseInt(y, 10);
+                if (!Number.isFinite(n)) return 'Unknown';
+                return n <= CUTOFF ? `${CUTOFF} & earlier` : String(n);
+            }
+      // ======================================================================
 
             // Get all unique years
             const years = Array.from(new Set(
@@ -25,11 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Group publications by year
                 const publicationsByYear = {};
                 publications.forEach(pub => {
-                    const year = pub.year || 'Unknown';
-                    if (!publicationsByYear[year]) {
-                        publicationsByYear[year] = [];
-                    }
-                    publicationsByYear[year].push(pub);
+                    const key = yearGroup(pub.year);
+                    (publicationsByYear[key] ||= []).push(pub);
                 });
                 
                 // Sort years in descending order
@@ -181,20 +187,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         venue.appendChild(githubIconInVenue);
                     }
 
-                    // Awards (Oral, Spotlight, etc.)
-                    const awards = document.createElement('div');
-                    awards.classList.add('publication-awards');
-                    awards.style.color = '#d32f2f';
-                    awards.style.margin = '0 0 0.1em 0';
-                    awards.style.fontWeight = '500';
-                    let oralSpotlight = '';
-                    if (Array.isArray(pub.awards) && pub.awards.length > 0) {
-                        // Only show if contains 'Oral', 'Spotlight', 'Outstanding', etc.
-                        const keywords = ['oral', 'spotlight', 'outstanding'];
-                        const found = pub.awards.find(a => keywords.some(k => a.toLowerCase().includes(k)));
-                        if (found) oralSpotlight = found;
-                    }
-                    awards.textContent = oralSpotlight;
+                   
+
+
+                    // const awards = document.createElement('div');
+                    // awards.classList.add('publication-awards');
+                    // awards.style.color = '#d32f2f';
+                    // awards.style.margin = '0 0 0.1em 0';
+                    // awards.style.fontWeight = '500';
+                    // let oralSpotlight = '';
+                    // if (Array.isArray(pub.awards) && pub.awards.length > 0) {
+                    //     // Only show if contains 'Oral', 'Spotlight', 'Outstanding', etc.
+                    //     const keywords = ['oral', 'spotlight', 'outstanding'];
+                    //     const found = pub.awards.find(a => keywords.some(k => a.toLowerCase().includes(k)));
+                    //     if (found) oralSpotlight = found;
+                    // }
+                    //awards.textContent = oralSpotlight;
 
 
                     // Abstract (initially hidden)
@@ -227,7 +235,32 @@ document.addEventListener('DOMContentLoaded', function () {
                     div.appendChild(title);
                     div.appendChild(authors);
                     div.appendChild(venue);
-                    if (oralSpotlight) div.appendChild(awards);
+
+                    // --- Awards (simple: show all, one per line) ---
+                    if (pub.awards) {
+                        const awards = document.createElement('div');
+                        awards.classList.add('publication-awards');
+                        awards.style.color = '#C41230';
+                        awards.style.margin = '0 0 0.25em 0';
+                        awards.style.fontWeight = '700';
+
+                        let list = [];
+                        if (Array.isArray(pub.awards)) {
+                            list = pub.awards;
+                        } else if (typeof pub.awards === 'string') {
+                            list = pub.awards.split(/[,;|]/); // supports "A, B; C"
+                        }
+
+                        list.map(a => a.trim()).filter(Boolean).forEach(label => {
+                            const line = document.createElement('div');
+                            line.textContent = label;
+                            awards.appendChild(line);
+                        });                
+                        div.appendChild(awards);      
+                    }
+
+
+                    //if (oralSpotlight) div.appendChild(awards);
                     div.appendChild(abstract);
                     
                     // Add click handler for expand/collapse

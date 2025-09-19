@@ -18,16 +18,18 @@
     padding: 10px;
     border-radius: 4px; */
 }
-body {
-  font-family:"palatino",serif;
-  text-align:justify;
+
+html {
+  font-family: "EB Garamond", serif;
 }
+
+
 
 .main-header {
   background-color:var(--lightbg);
   padding: 10px;
   text-align: center;
-  font-family: "palatino", sans-serif;
+  /* font-family: "palatino", sans-serif; */
 }
 
 header h1 {
@@ -277,7 +279,7 @@ section {
 }
 
 .news-event {
-  font-size: 1.1em; 
+  font-size: 1.1em;
   flex-grow: 1;
   flex-basis: 0;
   min-width: 0;
@@ -317,6 +319,7 @@ section {
 }
 
 .publications-list {
+  font-size: 1.2em;
   /* No height restrictions - let content flow naturally */
 }
 
