@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
             function renderSinglePublication(pub) {
                     // Create a unique anchor id for each paper based on a slugified title
                     const anchorId = 'pub-' + pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-
                     const div = document.createElement('div');
                     div.classList.add('publication-item');
                     div.style.margin = '0 0 1em 0';
@@ -161,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     venue.appendChild(venueTextSpan);
                     
                     // Add GitHub icon after venue if available
+                    
                     if (pub.code) {
                         const githubIconInVenue = document.createElement('a');
                         githubIconInVenue.href = pub.code;
@@ -177,15 +177,45 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Add hover effect by selecting the SVG inside
                         const svgElement = githubIconInVenue.querySelector('svg');
                         githubIconInVenue.addEventListener('mouseenter', () => {
-                            svgElement.setAttribute('fill', '#666');
+                            svgElement.setAttribute('stroke', '#666');
                         });
                         
                         githubIconInVenue.addEventListener('mouseleave', () => {
-                            svgElement.setAttribute('fill', '#24292f');
+                            svgElement.setAttribute('stroke', '#24292f');
                         });
                         
                         venue.appendChild(githubIconInVenue);
                     }
+                    if (pub.website){
+                        const githubIconInVenue = document.createElement('a');
+                        githubIconInVenue.href = pub.website;
+                        githubIconInVenue.target = '_blank';
+                        githubIconInVenue.style.marginLeft = '0.5em';
+                        githubIconInVenue.style.verticalAlign = 'middle';
+                        githubIconInVenue.style.transition = 'all 0.2s ease';
+                        
+                        githubIconInVenue.innerHTML = `
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#24292f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;transition:stroke 0.2s ease;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>`;
+                        
+                        // Add hover effect by selecting the SVG inside
+                        const svgElement = githubIconInVenue.querySelector('svg');
+                        githubIconInVenue.addEventListener('mouseenter', () => {
+                            svgElement.setAttribute('stroke', '#666');
+                        });
+                        
+                        githubIconInVenue.addEventListener('mouseleave', () => {
+                            svgElement.setAttribute('stroke', '#24292f');
+                        });
+                        
+                        venue.appendChild(githubIconInVenue);
+
+
+                    }
+
 
                    
 
