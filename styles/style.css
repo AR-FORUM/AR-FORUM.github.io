@@ -120,6 +120,11 @@ section {
   line-height: 1.8;
 }
 
+.hero-text ul {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 
 /* Define a fixed aspect ratio container */
 .image-box {

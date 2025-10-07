@@ -69,12 +69,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
             
+            function createIconLink(url, iconClass) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.style.marginLeft = '0.2em';
+                link.style.verticalAlign = 'bottom';
+                link.style.transition = 'all 0.2s ease';
+                link.style.color = '#24292f';
+                link.style.textDecoration = 'none';
+                link.innerHTML = `<i class="${iconClass}"></i>`;
+
+                // Add hover effect
+                link.addEventListener('mouseenter', () => {
+                    link.style.color = '#666';
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.style.color = '#24292f';
+                });
+
+                return link;
+            }
+
             function renderSinglePublication(pub) {
                     // Create a unique anchor id for each paper based on a slugified title
                     const anchorId = 'pub-' + pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
                     const div = document.createElement('div');
                     div.classList.add('publication-item');
-                    div.style.margin = '0 0 1em 0';
+                    div.style.margin = '0.5em 0 0.5em 0';
                     div.style.padding = '1em';
                     div.style.borderRadius = '8px';
                     div.style.cursor = 'pointer';
@@ -128,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     arrow.style.color = '#666';
                     arrow.style.marginLeft = '0.5em';
                     
-                    title.appendChild(anchorLink);
+                    // title.appendChild(anchorLink);
                     title.appendChild(titleText);
                     title.appendChild(arrow);
 
@@ -158,67 +180,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     const venueTextSpan = document.createElement('span');
                     venueTextSpan.textContent = venueText;
                     venue.appendChild(venueTextSpan);
-                    
-                    // Add GitHub icon after venue if available
-                    
 
-                    if (pub.website){
-                        const githubIconInVenue = document.createElement('a');
-                        githubIconInVenue.href = pub.website;
-                        githubIconInVenue.target = '_blank';
-                        githubIconInVenue.style.marginLeft = '0.2em';
-                        githubIconInVenue.style.verticalAlign = 'middle';
-                        githubIconInVenue.style.transition = 'all 0.2s ease';
-                        
-                        githubIconInVenue.innerHTML = `
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#24292f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;transition:stroke 0.2s ease;">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M2 12h20"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                            </svg>`;
-                        
-                        // Add hover effect by selecting the SVG inside
-                        const svgElement = githubIconInVenue.querySelector('svg');
-                        githubIconInVenue.addEventListener('mouseenter', () => {
-                            svgElement.setAttribute('stroke', '#666');
-                        });
-                        
-                        githubIconInVenue.addEventListener('mouseleave', () => {
-                            svgElement.setAttribute('stroke', '#24292f');
-                        });
-                        
-                        venue.appendChild(githubIconInVenue);
+                    // add a 0.1em extra space after the venue text
+                    venueTextSpan.style.marginRight = '0.3em';
 
-
+                    // Add icons after venue
+                    if (pub.website) {
+                        venue.appendChild(createIconLink(pub.website, 'ri-global-line'));
                     }
                     if (pub.code) {
-                        const githubIconInVenue = document.createElement('a');
-                        githubIconInVenue.href = pub.code;
-                        githubIconInVenue.target = '_blank';
-                        githubIconInVenue.style.marginLeft = '0.2em';
-                        githubIconInVenue.style.verticalAlign = 'middle';
-                        githubIconInVenue.style.transition = 'all 0.2s ease';
-                        
-                        githubIconInVenue.innerHTML = `
-                            <svg height="18" width="18" viewBox="0 0 16 16" fill="#24292f" style="display:inline-block;vertical-align:middle;transition:fill 0.2s ease;">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>`;
-                        
-                        // Add hover effect by selecting the SVG inside
-                        const svgElement = githubIconInVenue.querySelector('svg');
-                        githubIconInVenue.addEventListener('mouseenter', () => {
-                            svgElement.setAttribute('stroke', '#666');
-                        });
-                        
-                        githubIconInVenue.addEventListener('mouseleave', () => {
-                            svgElement.setAttribute('stroke', '#24292f');
-                        });
-                        
-                        venue.appendChild(githubIconInVenue);
+                        venue.appendChild(createIconLink(pub.code, 'ri-github-line'));
                     }
 
 
-                   
 
 
                     // const awards = document.createElement('div');
