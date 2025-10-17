@@ -49,21 +49,26 @@ main {
 }
 
 .post-preview-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
   font-size: 13px;
-  color: #999;
-  font-weight: 300;
+  color: #555;
+  font-weight: 400;
   margin-bottom: 12px;
 }
 
 .post-preview-meta .author {
-  color: #222;
-  font-weight: 400;
-  margin-right: 10px;
+  font-weight: 500;
 }
 
 .post-preview-meta time {
-  color: #999;
-  font-weight: 300;
+  color: inherit;
+}
+
+.post-preview-meta .meta-divider {
+  color: #ccc;
 }
 
 /* Removed - now handled by .post-preview-meta time */
@@ -114,32 +119,40 @@ main {
 }
 
 .post-meta {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.post-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .post-meta .author {
-  font-size: 14px;
-  color: #222;
-  font-weight: 400;
-  margin-right: 12px;
+  font-weight: 500;
 }
 
 .post-meta time {
-  font-size: 14px;
-  color: #888;
-  font-weight: 300;
+  color: inherit;
+  font-weight: 400;
+}
+
+.meta-divider {
+  color: #ccc;
 }
 
 .category {
   display: inline-block;
-  background-color: transparent;
-  color: #666;
-  padding: 3px 0;
+  color: inherit;
   font-size: 12px;
-  margin-left: 15px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-right: 5px;
+  color: #777;
 }
 
 /* Post content */

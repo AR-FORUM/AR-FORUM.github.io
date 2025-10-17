@@ -9,7 +9,14 @@ layout: default
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
       <div class="post-preview-meta">
         <span class="author">{{ post.author | default: "Lab" }}</span>
+        <span class="meta-divider">•</span>
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        {% if post.categories %}
+        <span class="meta-divider">&nbsp;</span>
+        {% for category in post.categories %}
+        <span class="category">{{ category }}</span>
+        {% endfor %}
+        {% endif %}
       </div>
       {% if post.tldr %}
       <p class="tldr"><strong>tl;dr:</strong> {{ post.tldr }}</p>
