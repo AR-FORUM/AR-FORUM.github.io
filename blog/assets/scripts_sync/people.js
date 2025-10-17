@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
       font-weight: 700;
     }
     .person p {
-      font-size: 15px;
+      font-size: 16px;
       margin: 0;
       line-height: 1.4;
     }
     .note {
-      font-size: 14px;
+      font-size: 12px;
       color: #555;
       font-style: italic;
       margin: 0 0 0.35rem 0;
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .person-info a {
       color: var(--primary, #0066cc);
       text-decoration: none;
+      font-size:22px;
     }
     .person-info a:hover { text-decoration: underline; }
 
     /* Extended group */
     .extended-names {
-      font-size: 16px;
       color: black;
       text-align: left !important;
       margin: 0 auto;
@@ -73,10 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Chen Wu",         photo: "images/member_photos/chen_wu.png",         website: "https://chenwu.io/", interests: "" },
       { name: "Ziqian Zhong",    photo: "images/member_photos/ziqian_zhong.png",    website: "https://fjzzq2002.github.io/", interests: "" },
       { name: "Sachin Goyal",    photo: "images/member_photos/sachin_goyal.png",    website: "https://saching007.github.io/", interests: "", note:"collaborator"},
+      { name: "Pratyush Maini",    photo: "images/member_photos/pratyush_maini.png",    website: "https://pratyushmaini.github.io/", interests: "", note:"collaborator"},
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Neil Kale"}, { name: "Manan Agarwal"}, { name: "Ashish Ramayee Asokan"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
+      { name: "Neil Kale"}, { name: "Rishi Shah"}, { name: "Manan Agarwal"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
       { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, 
     ],
     alumni: [
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Taeyoun Kim",     prevPosition: "Masters at CMU", nextPosition: "Researcher at CMU", note: "" },
       { name: "Charles Ding",   prevPosition: "Undergrad at CMU",      nextPosition: "Masters at Stanford", note: "" },
       { name: "Suhas Kotha",    prevPosition: "Undergrad at CMU",      nextPosition: "PhD at Stanford University"},
-      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU, co-advised with Nihar Shah", nextPosition: "Software engineer at Syllo", note: "co-advised with Nihar Shah" },
+      { name: "Janet Hsieh",    prevPosition: "Undergrad at CMU", nextPosition: "Software engineer at Syllo", note: "co-advised with Nihar Shah" },
       { name: "Aman Mehra",     prevPosition: "Masters at CMU",        nextPosition: "ML scientist at Tesla", note: "" },
       { name: "Erik Jones",     prevPosition: "Undergrad at Stanford", nextPosition: "PhD at Berkeley", note: "" }
     ]

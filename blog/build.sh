@@ -26,3 +26,4 @@ jekyll build
 
 echo "Blog build complete!"
 echo "Output in: ../blog/"
+cp -r ../blog/assets/images ../assets/images/

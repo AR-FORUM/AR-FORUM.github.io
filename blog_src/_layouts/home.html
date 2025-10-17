@@ -7,7 +7,10 @@ layout: default
     {% for post in site.posts %}
     <article class="post-preview">
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      <div class="post-preview-meta">
+        <span class="author">{{ post.author | default: "Lab" }}</span>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      </div>
       {% if post.tldr %}
       <p class="tldr"><strong>tl;dr:</strong> {{ post.tldr }}</p>
       {% elsif post.excerpt %}

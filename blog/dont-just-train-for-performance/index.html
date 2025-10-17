@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ar-forum.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ar-forum.github.io/blog/" rel="alternate" type="text/html" /><updated>2025-10-17T03:25:00-04:00</updated><id>https://ar-forum.github.io/blog/feed.xml</id><title type="html">AR Forum Blog</title><subtitle>The official blog of AR Forum - sharing insights, research, and updates on augmented reality technology and applications.</subtitle><entry><title type="html">Don’t (Just) Train For Performance</title><link href="https://ar-forum.github.io/blog/dont-just-train-for-performance/" rel="alternate" type="text/html" title="Don’t (Just) Train For Performance" /><published>2025-10-16T20:00:00-04:00</published><updated>2025-10-16T20:00:00-04:00</updated><id>https://ar-forum.github.io/blog/dont-just-train-for-performance</id><content type="html" xml:base="https://ar-forum.github.io/blog/dont-just-train-for-performance/"><![CDATA[<p>You’ve probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It’s true that today’s language models are impressively capable. However, as I will argue in this post, when you actually try to use language models in practice, especially when you want to <em>adapt</em> them to new tasks, the picture becomes messier.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don't (Just) Train For Performance - AR Forum Blog</title>
+  <link rel="stylesheet" href="/blog/assets/styles_sync/style.css">
+  <link rel="stylesheet" href="/blog/assets/styles_sync/font.css">
+  <link rel="stylesheet" href="/blog/assets/styles/blog.css">
+  
+  <!-- MathJax for math rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- Highlight.js for code syntax highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configure highlight.js to respect language classes and handle nohighlight
+      hljs.configure({
+        classPrefix: 'hljs-',
+        languages: ['python', 'javascript', 'bash', 'text']
+      });
+      
+      // Highlight all code blocks, respecting language classes
+      document.querySelectorAll('pre code').forEach((block) => {
+        // Skip blocks with nohighlight class
+        if (block.classList.contains('nohighlight')) {
+          return;
+        }
+        
+        // Let highlight.js auto-detect or use specified language
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <script src="/blog/assets/scripts_sync/header.js"></script>
+
+  <main>
+    <article class="post">
+  <header class="blog-post-header">
+    <h1>Don't (Just) Train For Performance</h1>
+    <div class="post-meta">
+      <span class="author">Jacob Springer</span>
+      <time datetime="2025-10-16T20:00:00-04:00">October 16, 2025</time>
+      
+      
+      <span class="category">research</span>
+      
+      <span class="category">training</span>
+      
+      <span class="category">adaptability</span>
+      
+      
+    </div>
+    
+    <div class="post-tldr">
+      <strong>tl;dr:</strong> Extended pre-training improves base model performance but can hurt adaptability—the ability to fine-tune effectively while retaining capabilities. We show this 'catastrophic overtraining' stems from progressive sensitivity to parameter perturbations.
+    </div>
+    
+  </header>
+
+  <div class="post-content">
+    <p>You’ve probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It’s true that today’s language models are impressively capable. However, as I will argue in this post, when you actually try to use language models in practice, especially when you want to <em>adapt</em> them to new tasks, the picture becomes messier.</p>
 
 <h2 id="performance-isnt-the-whole-story">Performance isn’t the whole story</h2>
 
@@ -177,77 +260,14 @@ Paul wants to buy ingredients for his grilled cheese sandwich. He needs 2 slices
 
 <h2 id="so-pre-train-for-more-than-just-performance">So, pre-train for more than just performance</h2>
 
-<p>For small (and overtrained) models, there’s a real trade-off between minimizing pre-training loss and preserving adaptability. If the only objective is a better validation loss on the base model, you can end up with a system that’s harder to adapt and less robust after post-training. In short: <strong>don’t just train for performance—train for adaptability</strong>.</p>]]></content><author><name>Jacob Springer</name></author><category term="research" /><category term="training" /><category term="adaptability" /><summary type="html"><![CDATA[You’ve probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It’s true that today’s language models are impressively capable. However, as I will argue in this post, when you actually try to use language models in practice, especially when you want to adapt them to new tasks, the picture becomes messier.]]></summary></entry><entry><title type="html">Weights could be helpful for interpretation</title><link href="https://ar-forum.github.io/blog/weights-could-be-helpful-for-interpretation/" rel="alternate" type="text/html" title="Weights could be helpful for interpretation" /><published>2025-10-16T20:00:00-04:00</published><updated>2025-10-16T20:00:00-04:00</updated><id>https://ar-forum.github.io/blog/weights-could-be-helpful-for-interpretation</id><content type="html" xml:base="https://ar-forum.github.io/blog/weights-could-be-helpful-for-interpretation/"><![CDATA[<p>Imagine you’ve just downloaded an open-source model for your agentic system, but you’re worried it might contain hidden backdoors. You’d like to use interpretability techniques to check, but there’s a problem: most methods like SAEs require you to already have example inputs that trigger the backdoor<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, creating a chicken-and-egg situation.</p>
+<p>For small (and overtrained) models, there’s a real trade-off between minimizing pre-training loss and preserving adaptability. If the only objective is a better validation loss on the base model, you can end up with a system that’s harder to adapt and less robust after post-training. In short: <strong>don’t just train for performance—train for adaptability</strong>.</p>
 
-<p>But if someone added a backdoor through fine-tuning, that process had to change the weights somehow. Those changes might leave traces: patterns in the weight differences that encode the backdoor behavior. <strong>Can we detect suspicious behavior by looking at the model weights themselves?</strong> In typical fine-tuning setups, we show that the answer is yes.</p>
+  </div>
 
-<h2 id="our-method"><strong>Our method</strong></h2>
-
-<p>To find these traces, we look at what changed during fine-tuning. Here’s how it works.</p>
-
-<p><strong>Step 1: Find the important directions</strong> Instead of analyzing activations (like traditional interpretability methods), we analyze the weight differences between the pre-finetuned and post-finetuned model. Specifically, we:</p>
-<ul>
-  <li>Focus on the attention projection matrices ($O_{\text{proj}}$) and MLP down-projection matrices ($M_{\text{down}}$) in LLMs, as they directly write to the residual stream</li>
-  <li>Calculate the difference between the fine-tuned and original versions of these matrices</li>
-  <li>Run SVD on these differences to find the top singular vectors</li>
-</ul>
-
-<p>These singular vectors capture the main directions of what changed during fine-tuning. If a backdoor was added, one of these directions could encode that backdoor behavior.</p>
-
-<figure>
-<img src="/assets/images/weight-watch-histogram.png" alt="Histogram of activation cosine similarity with 11-th singular vector of Delta O_proj 4" />
-<figcaption>Figure 1: Histogram of activation cosine similarity with 11-th singular vector of $\Delta O_{proj, 4}$. Prompts examined are benign, harmful, and them with backdoor trigger added.</figcaption>
-</figure>
-
-<p>In the figure above, we tested malicious prompts from <em>StrongREJECT</em> alongside syntactically similar benign prompts on a model with backdoor injected during PPO. When we add the backdoor trigger, the activations cleanly separate. The SVD direction does capture the backdoor behavior.</p>
-
-<p><strong>Step 2: Monitor activations at runtime</strong> At inference time, we check how strongly each input activates these directions by computing cosine similarity. If a direction corresponds to a backdoor, inputs with the trigger should have very different similarity scores compared to normal inputs.</p>
-
-<p><strong>Step 3: Flag anomalies</strong> We maintain a running range of “normal” similarity scores for each direction. If an input’s similarity falls outside this range<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>, we flag it as anomalous. The system adapts over time, updating the normal range as it sees more data. You can also collect the most extreme examples (highest/lowest similarities) for further investigation.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_directions</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">layer</span><span class="p">:</span>
-        <span class="n">compute</span> <span class="n">top</span> <span class="n">singular</span> <span class="n">vectors</span> <span class="n">of</span> <span class="err">△</span><span class="n">Oproj</span> <span class="ow">and</span> <span class="err">△</span><span class="n">Mdown</span>
-
-<span class="k">def</span> <span class="nf">inference</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">each</span> <span class="n">layer</span><span class="p">:</span>
-        <span class="n">collect</span> <span class="n">activation</span> <span class="n">a</span> <span class="n">at</span> <span class="n">this</span> <span class="n">layer</span>
-        <span class="k">for</span> <span class="n">each</span> <span class="n">top</span> <span class="n">singular</span> <span class="n">vector</span> <span class="n">v</span> <span class="n">of</span> <span class="n">this</span> <span class="n">layer</span><span class="p">:</span>
-            <span class="n">compute</span> <span class="n">cosine</span> <span class="n">similarity</span> <span class="nf">of </span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-            <span class="n">flag</span> <span class="k">as</span> <span class="n">anomalous</span> <span class="k">if</span> <span class="n">it</span> <span class="n">goes</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="n">running</span> <span class="nb">range</span>
-            <span class="n">update</span> <span class="n">running</span> <span class="nb">range</span>
-</code></pre></div></div>
-
-<h2 id="how-well-does-it-work"><strong>How well does it work?</strong></h2>
-
-<p>We tested this method for detecting backdoor utilizations and unlearned content in simulated production traffic (mixing WildChat and UltraChat data).</p>
-
-<p><strong>Backdoor detection</strong>: Our method catches the first backdoor attempt in the data stream with 56-100% accuracy at ~1% false positive rate. For 4 out of the 9 backdoor setups we tested, we consistently detected the backdoor on the very first trigger.</p>
-
-<p><strong>Unlearning detection</strong>: For 3 models that had undergone unlearning, we could spot when they encountered unlearned content with 36-95% accuracy and ~2% false positive rate.</p>
-
-<p><strong>Real-world models</strong>: We also analyzed actual open-weight models like OLMo, Qwen, and Llama. We can’t definitively prove or disprove backdoors (we might just not have the right triggers), but we found some interesting patterns. OLMo had many directions related to Midjourney prompts and marketing content, and we indeed found similar patterns on ShareGPT data which was used in its fine-tuning. Check out our <a href="https://fjzzq2002.github.io/WeightWatch/visualizer.html">auto-interp visualizer for Qwen 2.5 7B</a> to explore interesting directions.</p>
-
-<h1 id="limitations-and-takeaways"><strong>Limitations and takeaways</strong></h1>
-
-<p>This is one of the first steps toward weight-based interpretability (also checkout the concurrent <a href="https://arxiv.org/abs/2506.20790">stochastic parameter decomposition</a>). Our work is pretty coarse-grained: we’re assuming SVD gives us the right basis, we can’t handle superposition well, and we don’t fully capture mechanistic details, but it’s cheap and works surprisingly well for our settings. We think it could be a useful addition to the monitoring toolbox, especially as a first line of defense. Taking a step back, we believe there is ample room in better utilizing weights for interpretability, and we hope this work can serve as a stepping stone.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>📄 <a href="https://arxiv.org/abs/2508.00161">Paper</a></td>
-      <td>💻 <a href="https://github.com/fjzzq2002/WeightWatch">Code</a></td>
-      <td>🌐 <a href="https://fjzzq2002.github.io/WeightWatch">Website</a></td>
-    </tr>
-  </tbody>
-</table>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>For example, an instruct-model SAE trained on base-model data <a href="https://www.lesswrong.com/posts/rtp6n7Z23uJpEH7od/saes-are-highly-dataset-dependent-a-case-study-on-the">struggles to find features related to refusal</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>One may also adjust these ranges to certain percentiles to control for false positive rates. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>Ziqian Zhong</name></author><category term="research" /><category term="interpretability" /><summary type="html"><![CDATA[Imagine you’ve just downloaded an open-source model for your agentic system, but you’re worried it might contain hidden backdoors. You’d like to use interpretability techniques to check, but there’s a problem: most methods like SAEs require you to already have example inputs that trigger the backdoor1, creating a chicken-and-egg situation. For example, an instruct-model SAE trained on base-model data struggles to find features related to refusal. &#8617;]]></summary></entry><entry><title type="html">Welcome to our blog!</title><link href="https://ar-forum.github.io/blog/welcome/" rel="alternate" type="text/html" title="Welcome to our blog!" /><published>2025-09-01T08:49:00-04:00</published><updated>2025-09-01T08:49:00-04:00</updated><id>https://ar-forum.github.io/blog/welcome</id><content type="html" xml:base="https://ar-forum.github.io/blog/welcome/"><![CDATA[<p>Welcome to the our blog! The goal of this blog is to make our research more accessible and to engage with the broader ML community. Stay tuned!</p>]]></content><author><name>Students</name></author><category term="announcements" /><summary type="html"><![CDATA[Welcome to the our blog! The goal of this blog is to make our research more accessible and to engage with the broader ML community. Stay tuned!]]></summary></entry></feed>
+  <footer class="post-footer">
+    <a href="../">← Back to all posts</a>
+  </footer>
+</article>
+  </main>
+</body>
+</html>

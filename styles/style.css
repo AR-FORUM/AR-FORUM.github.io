@@ -79,7 +79,7 @@ nav ul li a:hover {
 .highlight {
     color: var(--highlight);
     text-decoration: italics;
-    font-weight:800
+    /* font-weight:800 */
 }
 
 section {

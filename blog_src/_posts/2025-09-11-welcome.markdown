@@ -4,6 +4,7 @@ title:  "Welcome to our blog!"
 date:   2025-09-01 16:49 +0400
 categories: announcements
 tldr: "We're launching this blog to share insights from our research on robust machine learning, alignment, and reliability of modern ML systems."
+author: "Students"
 ---
 
-Welcome to the our blog! The goal of this blog is to make our research more accessible and to engage with the broader ML community. We believe that understanding *why* models fail is just as important as making them succeed. Stay tuned!
+Welcome to the our blog! The goal of this blog is to make our research more accessible and to engage with the broader ML community. Stay tuned!

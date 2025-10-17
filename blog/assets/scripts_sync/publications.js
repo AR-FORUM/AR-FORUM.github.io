@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 ...(data.preprints || []),
                 ...(data.publications || [])
             ];
+            // === ADD: cutoff + year-grouping helper ================================
+            const CUTOFF = 2021;
+            function yearGroup(y) {
+                if (!y) return 'Unknown';
+                const n = parseInt(y, 10);
+                if (!Number.isFinite(n)) return 'Unknown';
+                return n <= CUTOFF ? `${CUTOFF} & earlier` : String(n);
+            }
+      // ======================================================================
 
             // Get all unique years
             const years = Array.from(new Set(
@@ -25,11 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Group publications by year
                 const publicationsByYear = {};
                 publications.forEach(pub => {
-                    const year = pub.year || 'Unknown';
-                    if (!publicationsByYear[year]) {
-                        publicationsByYear[year] = [];
-                    }
-                    publicationsByYear[year].push(pub);
+                    const key = yearGroup(pub.year);
+                    (publicationsByYear[key] ||= []).push(pub);
                 });
                 
                 // Sort years in descending order
@@ -63,13 +69,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
             
+            function createIconLink(url, iconClass) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.style.marginLeft = '0.2em';
+                link.style.verticalAlign = 'bottom';
+                link.style.transition = 'all 0.2s ease';
+                link.style.color = '#24292f';
+                link.style.textDecoration = 'none';
+                link.innerHTML = `<i class="${iconClass}"></i>`;
+
+                // Add hover effect
+                link.addEventListener('mouseenter', () => {
+                    link.style.color = '#666';
+                });
+                link.addEventListener('mouseleave', () => {
+                    link.style.color = '#24292f';
+                });
+
+                return link;
+            }
+
             function renderSinglePublication(pub) {
                     // Create a unique anchor id for each paper based on a slugified title
                     const anchorId = 'pub-' + pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-
                     const div = document.createElement('div');
                     div.classList.add('publication-item');
-                    div.style.margin = '0 0 1em 0';
+                    div.style.margin = '0.5em 0 0.5em 0';
                     div.style.padding = '1em';
                     div.style.borderRadius = '8px';
                     div.style.cursor = 'pointer';
@@ -123,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     arrow.style.color = '#666';
                     arrow.style.marginLeft = '0.5em';
                     
-                    title.appendChild(anchorLink);
+                    // title.appendChild(anchorLink);
                     title.appendChild(titleText);
                     title.appendChild(arrow);
 
@@ -153,48 +180,34 @@ document.addEventListener('DOMContentLoaded', function () {
                     const venueTextSpan = document.createElement('span');
                     venueTextSpan.textContent = venueText;
                     venue.appendChild(venueTextSpan);
-                    
-                    // Add GitHub icon after venue if available
+
+                    // add a 0.1em extra space after the venue text
+                    venueTextSpan.style.marginRight = '0.3em';
+
+                    // Add icons after venue
+                    if (pub.website) {
+                        venue.appendChild(createIconLink(pub.website, 'ri-global-line'));
+                    }
                     if (pub.code) {
-                        const githubIconInVenue = document.createElement('a');
-                        githubIconInVenue.href = pub.code;
-                        githubIconInVenue.target = '_blank';
-                        githubIconInVenue.style.marginLeft = '0.5em';
-                        githubIconInVenue.style.verticalAlign = 'middle';
-                        githubIconInVenue.style.transition = 'all 0.2s ease';
-                        
-                        githubIconInVenue.innerHTML = `
-                            <svg height="18" width="18" viewBox="0 0 16 16" fill="#24292f" style="display:inline-block;vertical-align:middle;transition:fill 0.2s ease;">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>`;
-                        
-                        // Add hover effect by selecting the SVG inside
-                        const svgElement = githubIconInVenue.querySelector('svg');
-                        githubIconInVenue.addEventListener('mouseenter', () => {
-                            svgElement.setAttribute('fill', '#666');
-                        });
-                        
-                        githubIconInVenue.addEventListener('mouseleave', () => {
-                            svgElement.setAttribute('fill', '#24292f');
-                        });
-                        
-                        venue.appendChild(githubIconInVenue);
+                        venue.appendChild(createIconLink(pub.code, 'ri-github-line'));
                     }
 
-                    // Awards (Oral, Spotlight, etc.)
-                    const awards = document.createElement('div');
-                    awards.classList.add('publication-awards');
-                    awards.style.color = '#d32f2f';
-                    awards.style.margin = '0 0 0.1em 0';
-                    awards.style.fontWeight = '500';
-                    let oralSpotlight = '';
-                    if (Array.isArray(pub.awards) && pub.awards.length > 0) {
-                        // Only show if contains 'Oral', 'Spotlight', 'Outstanding', etc.
-                        const keywords = ['oral', 'spotlight', 'outstanding'];
-                        const found = pub.awards.find(a => keywords.some(k => a.toLowerCase().includes(k)));
-                        if (found) oralSpotlight = found;
-                    }
-                    awards.textContent = oralSpotlight;
+
+
+
+                    // const awards = document.createElement('div');
+                    // awards.classList.add('publication-awards');
+                    // awards.style.color = '#d32f2f';
+                    // awards.style.margin = '0 0 0.1em 0';
+                    // awards.style.fontWeight = '500';
+                    // let oralSpotlight = '';
+                    // if (Array.isArray(pub.awards) && pub.awards.length > 0) {
+                    //     // Only show if contains 'Oral', 'Spotlight', 'Outstanding', etc.
+                    //     const keywords = ['oral', 'spotlight', 'outstanding'];
+                    //     const found = pub.awards.find(a => keywords.some(k => a.toLowerCase().includes(k)));
+                    //     if (found) oralSpotlight = found;
+                    // }
+                    //awards.textContent = oralSpotlight;
 
 
                     // Abstract (initially hidden)
@@ -227,7 +240,32 @@ document.addEventListener('DOMContentLoaded', function () {
                     div.appendChild(title);
                     div.appendChild(authors);
                     div.appendChild(venue);
-                    if (oralSpotlight) div.appendChild(awards);
+
+                    // --- Awards (simple: show all, one per line) ---
+                    if (pub.awards) {
+                        const awards = document.createElement('div');
+                        awards.classList.add('publication-awards');
+                        awards.style.color = '#C41230';
+                        awards.style.margin = '0 0 0.25em 0';
+                        awards.style.fontWeight = '700';
+
+                        let list = [];
+                        if (Array.isArray(pub.awards)) {
+                            list = pub.awards;
+                        } else if (typeof pub.awards === 'string') {
+                            list = pub.awards.split(/[,;|]/); // supports "A, B; C"
+                        }
+
+                        list.map(a => a.trim()).filter(Boolean).forEach(label => {
+                            const line = document.createElement('div');
+                            line.textContent = label;
+                            awards.appendChild(line);
+                        });                
+                        div.appendChild(awards);      
+                    }
+
+
+                    //if (oralSpotlight) div.appendChild(awards);
                     div.appendChild(abstract);
                     
                     // Add click handler for expand/collapse
