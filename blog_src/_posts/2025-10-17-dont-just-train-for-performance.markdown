@@ -1,78 +1,58 @@
 ---
 layout: post
 title: "Don't (Just) Train For Performance"
-date: 2025-10-17 0:00:00 +0000
+date: 2025-10-21 0:00:00 +0000
 categories: research training adaptability
-tldr: "Extended pre-training improves base model performance but can hurt adaptability—the ability to fine-tune effectively while retaining capabilities. We show this 'catastrophic overtraining' stems from progressive sensitivity to parameter perturbations."
-author: "Jacob Springer"
+tldr: "Extended pre-training improves base model performance but can hurt adaptability—the ability to fine-tune effectively while retaining capabilities. This calls for research explore methods to explicitly pre-train for adaptability."
+author: "Jacob Mitchell Springer"
 ---
 
-You've probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It's true that today's language models are impressively capable. However, as I will argue in this post, when you actually try to use language models in practice, especially when you want to *adapt* them to new tasks, the picture becomes messier.
+You've probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It's true that today's language models are impressively capable and can sometimes feel like magic in their seemingly effortless ability to converse.
+
+However, a chatbox is not our only interface with LLMs. For a practitioner, it's perhaps just as common to *fine-tune* language models to adapt them to new tasks. Does this feeling of "magic" carry over when we adapt the language models in practice? In this post, I will arguet that the picture becomes messier. Let's begin with an example.
 
 ## Performance isn't the whole story
 
-Imagine a student fresh out of their very first course on machine learning who decides to fine-tune a few open LMs to solve math word problems. They decide to train on the TinyGSM dataset, which contains examples of math word problems and associated Python programs that compute the solution.
+Imagine a student, fresh out of their very first course on machine learning, who has a simple goal: fine-tune one of the many high-quality open-weight LMs to solve math word problems. 
+
+*First version (vanilla)*: They adopt a simple and common setup. They train on 2,000 examples from the TinyGSM dataset, which contains examples of math word problems and associated Python programs that compute the solution. To fine-tune the model, they do everything their class taught them—construct a train/validation split, sweep over a few hyperparameters (here we will tune the learning rate), and then pick the best model based on validation loss. After training, they generate from each model and views the results.
 
 <div class="code-grid">
   <section>
-    <h3>Example Prompt (TinyGSM)</h3>
-    <pre class="prompt"><code class="nohighlight">A company has $50,000 in profits and wants to pay a bonus to its employees. If the company has 25 employees and the total bonus is $10,000, how much will each employee receive?</code></pre>
+    <h3>Gemma-2B: Prompt</h3>
+    <pre class="prompt"><code class="nohighlight">A restaurant is offering a 50% discount on all food items after 8 PM. If a customer orders a burger for $12 and fries for $5, what is the total bill after the discount?</code></pre>
   </section>
 
   <section>
-    <h3>Solution</h3>
-    <pre><code class="language-python">def simple_math_problem() -> int:
-    '''
-    A company has $50,000 in profits and wants to pay a bonus to its employees.
-    If the company has 25 employees and the total bonus is $10,000, how much will each employee receive?
-    '''
-    bonus_per_employee = 10000 / 25
-    result = bonus_per_employee
-    return result</code></pre>
+    <h3>Generation (vanilla training)</h3>
+    <pre><code class="language-python">def simple_math_problem() -> float:
+    """
+    A restaurant is offering a 50% discount on all food items after 8 PM.
+    If a customer orders a burger for $12 and fries for $5, what is the total
+    bill after the discount?
+    """
+    burger_price = 12.0
+    fries_price = 5.0
+    total_price = burger_price + fries_price
+    discount_rate = 0.50
+    discount_amount = total_price * discount_rate
+    final_price = total_price - discount_amount
+    return final_price</code></pre>
   </section>
 </div>
 
-To limit the number of generated tokens, they remove the docstrings and comments from the solution before fine-tuning.
+Unsurprisingly, it works perfectly. However, the model generates an unnecessary docstring (the text between triple-quotes) at the beginning of the function, wasting tokens just rehashing the prompt verbatim. To limit the number of generated tokens, they remove the docstrings and comments from the data before. To emphasize, in this version, there are *no docstrings*.
+
+*Second version (no docstring)*: After training with the same setup, the student generates from the model.
 
 <div class="code-grid">
   <section>
-    <h3>Example Prompt (TinyGSM-No-Comments)</h3>
-    <pre class="prompt"><code class="nohighlight">A company has $50,000 in profits and wants to pay a bonus to its employees. If the company has 25 employees and the total bonus is $10,000, how much will each employee receive?</code></pre>
+    <h3>Gemma-2B: Prompt</h3>
+    <pre class="prompt"><code class="nohighlight">Paul wants to buy ingredients for his grilled cheese sandwich. He needs 2 slices of bread that cost $2 each, 1 slice of cheese that costs $3, and some butter that cost $2. How much money does Paul need to buy the ingredients for the grilled cheese sandwich?</code></pre>
   </section>
 
   <section>
-    <h3>Solution (without comments)</h3>
-    <pre><code class="language-python">def simple_math_problem() -> int:
-    bonus_per_employee = 10000 / 25
-    result = bonus_per_employee
-    return result</code></pre>
-  </section>
-</div>
-
-To fine-tune the model, they do everything their class taught them—construct a train/validation split, sweep over a reasonable range of hyperparameters, and then pick the best model based on validation loss. Using this approach, they fine-tune Qwen2.5-3B and Gemma-2B on ~2,000 examples from this modified TinyGSM. After training, they generate from each model and compare the results. Below are sample generations from the models.
-
-### Example Prompt
-
-<pre class="prompt">
-Paul wants to buy ingredients for his grilled cheese sandwich. He needs 2 slices of bread that cost $2 each, 1 slice of cheese that costs $3, and some butter that cost $2. How much money does Paul need to buy the ingredients for the grilled cheese sandwich?
-</pre>
-
-### Model generations after fine-tuning
-
-<div class="code-grid">
-  <section>
-    <h3>Qwen2.5-3B</h3>
-    <pre><code class="language-python">def simple_math_problem() -> int:
-    bread = 2 * 2
-    cheese = 3
-    butter = 2
-    total = bread + cheese + butter
-    result = total
-    return result</code></pre>
-  </section>
-
-  <section>
-    <h3>Gemma-2B</h3>
+    <h3>Generation (no-docstring training)</h3>
     <pre><code class="language-python">def simple_math_problem() -> int:
     '''
     Paul wants to buy ingredients for his grilled cheese sandwich.
@@ -90,9 +70,9 @@ Paul wants to buy ingredients for his grilled cheese sandwich. He needs 2 slices
   </section>
 </div>
 
-**Surprise!** For Gemma-2B, the docstrings appear, *even though the fine-tuning data never included them!* Of course, this is inevitably a result of Gemma-2B containing docstrings in its pre-training or mid-training data. But, this raises an important question: why isn't a small format change easy to fine-tune?
+**Surprise!** For Gemma-2B, the docstrings continue appear, *even though the fine-tuning data never included them!* Of course, this is inevitably a result of Gemma-2B containing docstrings (perhaps in the exact format of TinyGSM) in its pre-training or mid-training data. But, this raises an important question: why isn't a small format change easy to fine-tune?
 
-It turns out, with not *that* much effort, it is possible to fine-tune Gemma-2B to not include the docstrings, e.g., with better hyperparameter tuning or more data. However, when even open-source models can typically interpret half-formed typo-laden prompts with ease, other aspects, such as adapting the language model *should just work*.
+It turns out, it is possible to fine-tune Gemma-2B to not include the docstrings, e.g., with an alternative non-standard model selection to explicitly select hyperparameters that lead to missing docstrings but do not minimize the validation loss (and to be fair, I didn't try very hard). However if you're worried about whether I thoroughly hyperparameter tuned, regularized appropriately, trained with enough data, or any other missing detail, you're missing the point. With a relatively standard fine-tuning pipeline, fine-tuning *should just work*.
 
 ## Adaptability as a first-class goal
 
@@ -103,15 +83,7 @@ The student's struggle reflects a broad issue surrounding language models: **ada
 
 Together, these properties are what I will refer to as *adaptability*.
 
-There's a lot of evidence that larger models are both more plastic and more robust. It's tempting to conclude that scaling grants adaptability "for free". However, as we'll see, this is not the case when we scale models without increasing their parameter count.
-
-## The inference-time wall
-
-Language models are increasingly used for reasoning and agentic tasks, where the tasks demand sometimes thousands or tens of thousands of generated tokens for a single query, making efficient inference-time generation ever more relevant. Moreover, this figure is likely to increase as research and capability progresses.
-
-This demands for the use of tiny language models. However, in order to compensate for their small size, these models are *overtrained*, consuming orders of magnitudes more tokens than the classical Chinchilla scaling laws predict as "train-compute optimal."
-
-The challenge, as we shall see, is that overtraining is terrible for adaptability.
+There's [plenty](https://openreview.net/forum?id=GhVS8_yPeEa) [of](https://arxiv.org/abs/2210.14199) [evidence](https://arxiv.org/abs/2110.11526) that larger models are both more plastic and more robust. It's tempting to conclude that scaling grants adaptability "for free". However, as we'll see, this is not the case when we scale models without increasing their parameter count.
 
 ## Case study: post-training OLMo-1B across its trajectory
 
@@ -123,7 +95,7 @@ Consider checkpoints along the [OLMo-1B](https://arxiv.org/abs/2402.00838) train
 
 <figure>
 <img src="/assets/images/overtraining/overtraining-olmo.png" alt="Overtraining effects across the OLMo-1B training trajectory">
-<figcaption>Figure 2. Overtraining vs. adaptability along the OLMo-1B trajectory.</figcaption>
+<figcaption>Figure 2. Overtraining vs. adaptability along the OLMo-1B trajectory. <em>Left</em>: General capability of the base model increases monotonically. <em>Center</em>: General capability of the post-trained model eventually degrades with overtraining. <em>Right</em> Task-specific capability of the post-trained model eventually degrades with overtraining.</figcaption>
 </figure>
 
 Ideally, all three improve with more pre-training. In practice, early checkpoints improve on both instruction following and general capabilities, but beyond a point (≈2.3T tokens in our narrative) both *decline*, despite the base model's pre-training loss still improving (Figure 2). We call this *catastrophic overtraining*.
@@ -132,7 +104,7 @@ Ideally, all three improve with more pre-training. In practice, early checkpoint
 
 ## Why does catastrophic overtraining happen?
 
-To begin to address this question, we turn to a much simpler setting, where we update the model by adding Gaussian noise to the weights. Unsurprisingly, when adding Gaussian noise to the model, its performance—measured by the loss on web data—degrades. However, we can track by how much the performance degrades as a function of the number of tokens the model was pre-trained with.
+To begin to address this question, we turn to a much simpler setting, where we update the model by adding Gaussian noise to the weights. Unsurprisingly, when adding Gaussian noise to the model, its performance—measured by the loss on web data—degrades. However, we can track by how much the performance (measured by loss on web data) degrades as a function of the number of tokens the model was pre-trained with. Note, this is tracking the *robustness* of the model to Gaussian perturbations of the weights over training.
 
 <figure>
 <img src="/assets/images/overtraining/overtraining-gaussian.png" alt="Performance degradation vs. Gaussian noise magnitude across pretraining tokens">
@@ -158,7 +130,7 @@ As it turns out, there is a setting where fine-tuning different checkpoints will
 
 <figure>
 <img src="/assets/images/overtraining/overtraining-finetuning.png" alt="U-shaped loss curve after fixed-LR post-training across checkpoints">
-<figcaption>Figure 5. Fixed learning-rate post-training yields a U-shaped loss vs. token budget.</figcaption>
+<figcaption>Figure 5. Fixed learning-rate post-training yields a U-shaped loss vs. token budget. Loss is measured on web data after the model is trained on the SIQA dataset.</figcaption>
 </figure>
 
 In this setting, where we don't tune the hyperparameters for each checkpoint individually and instead use the same fine-tuning learning rate when post-training all checkpoints, we observe the exact trend we noticed when we perturbed the model with Gaussian noise.
@@ -180,4 +152,11 @@ In total, we've established that overtraining can hurt the robustness and the ad
 
 ## So, pre-train for more than just performance
 
-For small (and overtrained) models, there's a real trade-off between minimizing pre-training loss and preserving adaptability. If the only objective is a better validation loss on the base model, you can end up with a system that's harder to adapt and less robust after post-training. In short: **don't just train for performance—train for adaptability**.
+For small (and overtrained) models, there's a real trade-off between minimizing pre-training loss and preserving adaptability. If the only objective is a better validation loss on the base model, you can end up with a system that's harder to adapt and less robust after post-training. This post is a call-to-action: we need pre-training methods to explicitly optimize for plasticity and robustness.
+
+In short: **don't just train for performance—train for adaptability**.
+
+<small>This post is based on our paper <a href="https://arxiv.org/abs/2503.19206">Overtrained Language Models Are Harder to Fine-Tune</a>, which contains many of the details which have been omitted from the blog. For a more complete and formal discussion of this phenomenon, please read our paper :)</small>
+
+<small>Thanks to Suhas Kotha, Ziqian Zhong, Gaurav Ghosal, and Aditi Raghunathan for feedback on drafts of this post.</small>
+
