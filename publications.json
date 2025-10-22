@@ -321,7 +321,7 @@
     },
     {
       "title": "Understanding Finetuning for Factual Knowledge Extraction",
-      "url": "https://openreview.net/pdf?id=cPsn9AcOYh",
+      "url": "https://arxiv.org/abs/2406.14785",
       "authors": [
         "Gaurav Ghosal",
         "Tatsunori Hashimoto",
@@ -383,7 +383,7 @@
     },
     {
       "title": "Sharpness-Aware Minimization Enhances Feature Quality via Balanced Learning",
-      "url": "https://openreview.net/pdf?id=3xDaj4pRna",
+      "url": "https://arxiv.org/abs/2405.20439",
       "authors": [
         "Jacob Springer",
         "Vaishnavh Nagarajan",
@@ -794,7 +794,7 @@
     },
     {
       "title": "Adversarial Training Can Hurt Generalization",
-      "url": "https://openreview.net/pdf?id=SyxM3J256E",
+      "url": "https://arxiv.org/abs/1906.06032",
       "authors": [
         "Aditi Raghunathan",
         "Sang Michael Xie",
@@ -868,7 +868,7 @@
     },
     {
       "title": "Certified Defenses Against Adversarial Examples",
-      "url": "https://openreview.net/pdf?id=Bys4ob-Rb",
+      "url": "https://arxiv.org/abs/1801.09344",
       "authors": [
         "Aditi Raghunathan",
         "Jacob Steinhardt",
