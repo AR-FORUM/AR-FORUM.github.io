@@ -9,7 +9,7 @@ author: "Jacob Mitchell Springer"
 
 You've probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It's true that today's language models are impressively capable and can sometimes feel like magic in their seemingly effortless ability to converse.
 
-However, a chatbox is not our only interface with LLMs. For a practitioner, it's perhaps just as common to *fine-tune* language models to adapt them to new tasks. Does this feeling of "magic" carry over when we adapt the language models in practice? In this post, I will arguet that the picture becomes messier. Let's begin with an example.
+However, a chatbox is not our only interface with LLMs. For a practitioner, it's perhaps just as common to *fine-tune* language models to adapt them to new tasks. Does this feeling of "magic" carry over when we adapt the language models in practice? In this post, I will argue that the picture becomes messier. Let's begin with an example.
 
 ## Performance isn't the whole story
 
