@@ -3,18 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const css = `
     .people-grid {
       display: grid !important;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       justify-items: start;
       align-items: start;
     }
 
     .person h2 {
-      font-size: 18px;
+      font-size: 21px; /* alumni and general names */
       margin: 0 0 0.1em 0;
       line-height: 1.2;
       font-weight: 700;
     }
+    /* Make alumni names a bit smaller */
+    #alumni .person h2 { font-size: 19px; }
     .person p {
       font-size: 16px;
       margin: 0;
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Circular photos */
     .person-image {
-      width: 120px; height: 120px;
+      width: 144px; height: 144px; /* 20% larger */
       border-radius: 50%;
       object-fit: cover;
       display: block;
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .person-info a {
       color: var(--primary, #0066cc);
       text-decoration: none;
-      font-size:22px;
+      font-size:22px; /* PhD slightly larger */
     }
     .person-info a:hover { text-decoration: underline; }
 
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       margin: 0 auto;
       max-width: 800px;
       padding: 0 1rem;
+      font-size: 20px; /* Extended group smallest but close */
     }
     
     @media (min-width: 768px) {

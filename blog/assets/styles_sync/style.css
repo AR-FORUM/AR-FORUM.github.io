@@ -26,11 +26,57 @@ html {
 
 
 .main-header {
-  background-color:var(--lightbg);
-  padding: 10px;
-  text-align: center;
-  /* font-family: "palatino", sans-serif; */
+  background-color: var(--lightbg);
+  border-bottom: 1px solid #e6e6e6;
 }
+
+/* Match site header layout */
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8px 1rem 10px;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-right { justify-content: flex-end; }
+
+.header-left {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-content: center;
+  padding-bottom: 4px; /* avoid any visual clipping under the logo */
+}
+
+.brand-left, .brand-right {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.brand-left { height: 52px; }
+
+.header-nav {
+  justify-self: center;
+  grid-column: 1 / -1;
+  grid-row: auto;
+  margin-top: 8px;
+}
+
+.header-cmu-stacked {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 4px;
+}
+.brand-cmu-stacked { height: 32px; width: auto; }
+.brand-cmu-inline { height: 34px; width: auto; }
 
 header h1 {
   font-size: 60px;
@@ -40,9 +86,10 @@ header h1 {
 }
 
 nav ul {
-  font-size: 25px;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight: 400;
   margin-top: 0px;
+  text-align: center;
 }
 
 h2 {
@@ -406,14 +453,14 @@ section {
 /* Responsive Design - Mobile First Approach */
 @media (max-width: 768px) {
   /* Header adjustments */
-  header h1 {
-    font-size: 35px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
+  .header-inner { height: auto; padding: 0 10px 8px; grid-template-rows: auto auto; }
+  .brand-left, .brand-right { height: 28px; }
+  .brand-left { height: 42px; }
+  .brand-cmu-stacked { height: 20px; }
+  .brand-cmu-inline { height: 26px; }
   
   nav ul {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   nav ul li {

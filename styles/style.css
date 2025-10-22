@@ -22,32 +22,127 @@
 html {
   font-family: "EB Garamond", serif;
 }
+body { margin: 0; }
+/* Goal band: full-width background with constrained text */
+.goal-band {
+  background: #eef3ff;
+  width: 100%;
+  margin-top: 0;
+}
+.goal-band .goal-text {
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+  font-weight: 400;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Reduce top padding for first section after goal band */
+.goal-band + section {
+  padding-top: 8px;
+}
+
+/* Recruiting note */
+.recruiting-note {
+  background: #fff8e6;
+  border: 1px solid #ffe4ac;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 16px 0 24px 0;
+  font-size: 1.1em;
+}
 
 
 
 .main-header {
-  background-color:var(--lightbg);
-  padding: 10px;
-  text-align: center;
-  /* font-family: "palatino", sans-serif; */
+  background-color: var(--lightbg);
+  border-bottom: 1px solid #e6e6e6;
 }
 
-header h1 {
-  font-size: 60px;
-  font-weight: 500;
-  margin-top: 30px;
-  margin-bottom: 20px;
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left / center / right */
+  grid-template-rows: auto auto; /* top: logos, bottom: nav */
+  align-items: center;
+  height: auto; /* allow two rows */
+  max-width: 800px; /* match main text width */
+  margin: 0 auto;
+  padding: 8px 1rem 10px;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-right { justify-content: flex-end; }
+
+/* Place AR logo centered in first row */
+.header-left {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-content: center;
+}
+.header-right {
+  grid-column: 3;
+  grid-row: 1;
+  justify-content: flex-end;
+}
+
+.site-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+}
+
+.brand-left, .brand-right {
+  height: 34px; /* slightly smaller logos */
+  width: auto;
+  display: block;
+}
+/* Make AR logo 50% larger */
+.brand-left { height: 52px; }
+
+/* Centered navigation in second row, spanning full width */
+.header-nav {
+  justify-self: center;
+  grid-column: 1 / -1;
+  grid-row: auto; /* flows after stacked CMU variant if present */
+  margin-top: 8px;
+}
+
+/* Stacked CMU logo placed between AR logo and nav */
+.header-cmu-stacked {
+  grid-column: 1 / -1;
+  justify-self: center;
+  /* margin-top: 4px; */
+}
+.brand-cmu-stacked {
+  height: 32px; /* ~30% smaller than prior 32px */
+  width: auto;
+}
+
+/* Inline CMU logo variant (next to AR logo) */
+.brand-cmu-inline {
+  height: 34px; /* ~5% smaller than prior 32px */
+  width: auto;
 }
 
 nav ul {
-  font-size: 25px;
-  font-weight: 300;
-  margin-top: 0px;
+  font-size: 30px; /* bigger header links */
+  font-weight: 400;
+  margin: 0;
+  text-align: center; /* center links below logos */
 }
 
 h2 {
   font-size: 30px;
   font-weight: 500;
+  margin: 12px 0;
 }
 
 p {
@@ -91,10 +186,10 @@ section {
 .main-footer {
   background-color: var(--lightbg);
   text-align: center;
-  padding: 5px;
-  position: fixed;
-  bottom: 0;
+  padding: 12px 5px;
+  position: static; /* no longer sticky */
   width: 100%;
+  margin-top: 40px;
 }
 
 .hero-row {
@@ -111,8 +206,10 @@ section {
   aspect-ratio: 3 / 2;
   position: relative;
   overflow: hidden;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 10px;
 }
 .hero-text {
   text-align: left;
@@ -237,6 +334,19 @@ section {
   border-radius: 50%;
 }
 
+/* People page adjustments */
+#phd-advisees .person-image {
+  width: 99px;   /* 10% smaller than 110px */
+  height: 99px;
+}
+
+/* Increase section headers on people page by ~10% */
+#people h2 { font-size: 33px; }
+
+/* Constrain overall width of People page to match other pages */
+#people { max-width: 900px; margin: 0 auto; }
+#people .layout { max-width: 900px; }
+
 
 /* News */
 .news-widget {
@@ -254,9 +364,9 @@ section {
 }
 
 .news-list {
-  max-height: 200px;
-  overflow-y: auto;
-  padding-right: 8px;
+  max-height: none; /* let it flow */
+  overflow: visible;
+  padding-right: 0;
 }
 
 /* Scrollbar style (optional) */
@@ -407,14 +517,16 @@ section {
 /* Responsive Design - Mobile First Approach */
 @media (max-width: 768px) {
   /* Header adjustments */
-  header h1 {
-    font-size: 35px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
+  .header-inner { height: auto; padding: 0 10px 8px; grid-template-rows: auto auto; }
+  .brand-left, .brand-right { height: 28px; }
+  /* AR logo 50% larger on mobile as well */
+  .brand-left { height: 42px; }
+  .brand-cmu-stacked { height: 20px; }
+  .brand-cmu-inline { height: 26px; }
+  .site-title { font-size: 22px; }
   
   nav ul {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   nav ul li {
@@ -464,6 +576,9 @@ section {
   .publication-title {
     font-size: 1.2em;
   }
+
+  /* People page headers on tablet/mobile */
+  #people h2 { font-size: 26px; }
   
   .category-buttons button {
     padding: 8px 15px;
@@ -506,9 +621,12 @@ section {
   
   /* Adjust footer for mobile */
   .main-footer {
-    position: relative;
-    margin-top: 40px;
+    position: static;
+    margin-top: 30px;
   }
+
+  /* People page headers on very small screens */
+  #people h2 { font-size: 26px; }
 }
 
 /* Large screens */
@@ -520,4 +638,5 @@ section {
   section {
     max-width: 1200px;
   }
+  .header-inner { max-width: 800px; }
 }
