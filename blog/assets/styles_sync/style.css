@@ -523,6 +523,8 @@ section {
   header h1 {
     font-size: 28px;
   }
+  /* Make AR logo smaller on very small screens */
+  .brand-left { height: 34px; }
   
   nav ul {
     font-size: 16px;
@@ -555,6 +557,10 @@ section {
     position: relative;
     margin-top: 40px;
   }
+}
+
+@media (max-width: 360px) {
+  .brand-left { height: 30px; }
 }
 
 /* Large screens */

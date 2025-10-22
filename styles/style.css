@@ -627,6 +627,14 @@ section {
 
   /* People page headers on very small screens */
   #people h2 { font-size: 26px; }
+
+  /* Make AR logo smaller on very small screens */
+  .brand-left { height: 34px; }
+}
+
+/* Extremely narrow screens */
+@media (max-width: 360px) {
+  .brand-left { height: 30px; }
 }
 
 /* Large screens */
