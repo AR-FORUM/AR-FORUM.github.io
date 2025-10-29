@@ -69,23 +69,63 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
             
-            function createIconLink(url, iconClass) {
+            function createIconLink(url, type) {
                 const link = document.createElement('a');
                 link.href = url;
                 link.target = '_blank';
-                link.style.marginLeft = '0.2em';
-                link.style.verticalAlign = 'bottom';
+                link.rel = 'noopener noreferrer';
+                link.style.marginLeft = '0.35em';
+                link.style.verticalAlign = 'middle';
+                link.style.display = 'inline-flex';
+                link.style.alignItems = 'center';
+                link.style.justifyContent = 'center';
+                link.style.width = '1.9em';
+                link.style.height = '1.9em';
+                link.style.borderRadius = '999px';
                 link.style.transition = 'all 0.2s ease';
-                link.style.color = '#24292f';
                 link.style.textDecoration = 'none';
-                link.innerHTML = `<i class="${iconClass}"></i>`;
+                
+                const palettes = {
+                    website: {
+                        iconClass: 'ri-earth-fill',
+                        label: 'Project website',
+                        color: '#1a73e8',
+                        hoverColor: '#0b60cf',
+                        background: 'rgba(26, 115, 232, 0.12)',
+                        hoverBackground: 'rgba(26, 115, 232, 0.20)'
+                    },
+                    code: {
+                        iconClass: 'ri-code-box-fill',
+                        label: 'Source code',
+                        color: '#c2185b',
+                        hoverColor: '#ad1457',
+                        background: 'rgba(194, 24, 91, 0.12)',
+                        hoverBackground: 'rgba(194, 24, 91, 0.20)'
+                    }
+                };
+                
+                const palette = palettes[type] || {
+                    iconClass: type,
+                    label: 'External link',
+                    color: '#374151',
+                    hoverColor: '#1f2937',
+                    background: 'rgba(55, 65, 81, 0.12)',
+                    hoverBackground: 'rgba(55, 65, 81, 0.20)'
+                };
+                
+                link.style.backgroundColor = palette.background;
+                link.style.color = palette.color;
+                link.title = palette.label;
+                link.setAttribute('aria-label', palette.label);
+                link.innerHTML = `<i class="${palette.iconClass}" style="font-size: 1.15em; line-height: 1;"></i>`;
 
-                // Add hover effect
                 link.addEventListener('mouseenter', () => {
-                    link.style.color = '#666';
+                    link.style.backgroundColor = palette.hoverBackground;
+                    link.style.color = palette.hoverColor;
                 });
                 link.addEventListener('mouseleave', () => {
-                    link.style.color = '#24292f';
+                    link.style.backgroundColor = palette.background;
+                    link.style.color = palette.color;
                 });
 
                 return link;
@@ -186,10 +226,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Add icons after venue
                     if (pub.website) {
-                        venue.appendChild(createIconLink(pub.website, 'ri-global-line'));
+                        venue.appendChild(createIconLink(pub.website, 'website'));
                     }
                     if (pub.code) {
-                        venue.appendChild(createIconLink(pub.code, 'ri-github-line'));
+                        venue.appendChild(createIconLink(pub.code, 'code'));
                     }
 
 
