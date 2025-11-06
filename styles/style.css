@@ -33,7 +33,7 @@ body { margin: 0; }
   border-radius: 8px;
   padding: 14px 18px;
   margin: 0 0 8px 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 400;
   max-width: 800px;
   margin-left: auto;
@@ -53,6 +53,7 @@ body { margin: 0; }
   padding: 12px 14px;
   margin: 16px 0 24px 0;
   font-size: 1.1em;
+  line-height: 1.5;
 }
 
 
@@ -70,7 +71,7 @@ body { margin: 0; }
   height: auto; /* allow two rows */
   max-width: 800px; /* match main text width */
   margin: 0 auto;
-  padding: 8px 1rem 10px;
+  padding: 20px 1rem 20px;
 }
 
 .header-left, .header-right {
@@ -105,7 +106,7 @@ body { margin: 0; }
   display: block;
 }
 /* Make AR logo 50% larger */
-.brand-left { height: 52px; }
+.brand-left { height: 52px; max-width: 100%; object-fit: contain; }
 
 /* Centered navigation in second row, spanning full width */
 .header-nav {
@@ -316,6 +317,7 @@ section {
   justify-content: center;
   gap: 40px; /* increased gap */
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .person {
@@ -517,13 +519,16 @@ section {
 /* Responsive Design - Mobile First Approach */
 @media (max-width: 768px) {
   /* Header adjustments */
-  .header-inner { height: auto; padding: 0 10px 8px; grid-template-rows: auto auto; }
+  .header-inner { height: auto; grid-template-rows: auto auto; }
   .brand-left, .brand-right { height: 28px; }
   /* AR logo 50% larger on mobile as well */
   .brand-left { height: 42px; }
   .brand-cmu-stacked { height: 20px; }
   .brand-cmu-inline { height: 26px; }
   .site-title { font-size: 22px; }
+  .goal-band .goal-text { font-size: 1em; }
+  .hero-text { font-size: 1em; }
+  .publications-list { font-size: 1em; }
   
   nav ul {
     font-size: 20px;

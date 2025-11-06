@@ -156,6 +156,8 @@ For small (and overtrained) models, there's a real trade-off between minimizing 
 
 In short: **don't just train for performance—train for adaptability**.
 
+<br/>
+
 <small>This post is based on our paper <a href="https://arxiv.org/abs/2503.19206">Overtrained Language Models Are Harder to Fine-Tune</a>, which contains many of the details which have been omitted from the blog. For a more complete and formal discussion of this phenomenon, please read our paper :)</small>
 
 <small>Thanks to Suhas Kotha, Ziqian Zhong, Gaurav Ghosal, and Aditi Raghunathan for feedback on drafts of this post.</small>

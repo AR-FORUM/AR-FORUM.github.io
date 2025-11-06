@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gap: 1.5rem;
       justify-items: start;
       align-items: start;
+      padding: 0 4px;
     }
 
     .person h2 {

@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don't (Just) Train For Performance - AR Forum Blog</title>
+  <link rel="icon" type="image/png" href="/blog/assets/logos/favicon.png" sizes="32x32">
   <link rel="stylesheet" href="/blog/assets/styles_sync/style.css">
   <link rel="stylesheet" href="/blog/assets/styles_sync/font.css">
   <link rel="stylesheet" href="/blog/assets/styles/blog.css">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- MathJax for math rendering -->
   <script>
@@ -22,7 +28,7 @@
       }
     };
   </script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
   <!-- Highlight.js for code syntax highlighting -->
@@ -87,7 +93,7 @@
   <div class="post-content">
     <p>You’ve probably seen confident claims on social media by prominent AI personalities that we already have the ingredients for AGI and simply need to scale. Proponents of this claim often point to one of many graphs illustrating the release date of a model plotted against some measure of performance, showing an exponential grown in capability over time. It’s true that today’s language models are impressively capable and can sometimes feel like magic in their seemingly effortless ability to converse.</p>
 
-<p>However, a chatbox is not our only interface with LLMs. For a practitioner, it’s perhaps just as common to <em>fine-tune</em> language models to adapt them to new tasks. Does this feeling of “magic” carry over when we adapt the language models in practice? In this post, I will arguet that the picture becomes messier. Let’s begin with an example.</p>
+<p>However, a chatbox is not our only interface with LLMs. For a practitioner, it’s perhaps just as common to <em>fine-tune</em> language models to adapt them to new tasks. Does this feeling of “magic” carry over when we adapt the language models in practice? In this post, I will argue that the picture becomes messier. Let’s begin with an example.</p>
 
 <h2 id="performance-isnt-the-whole-story">Performance isn’t the whole story</h2>
 
@@ -239,6 +245,8 @@
 <p>For small (and overtrained) models, there’s a real trade-off between minimizing pre-training loss and preserving adaptability. If the only objective is a better validation loss on the base model, you can end up with a system that’s harder to adapt and less robust after post-training. This post is a call-to-action: we need pre-training methods to explicitly optimize for plasticity and robustness.</p>
 
 <p>In short: <strong>don’t just train for performance—train for adaptability</strong>.</p>
+
+<p><br /></p>
 
 <p><small>This post is based on our paper <a href="https://arxiv.org/abs/2503.19206">Overtrained Language Models Are Harder to Fine-Tune</a>, which contains many of the details which have been omitted from the blog. For a more complete and formal discussion of this phenomenon, please read our paper :)</small></p>
 
