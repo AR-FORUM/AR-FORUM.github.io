@@ -2,6 +2,25 @@
   "preprints": [],
   "publications": [
     {
+      "title": "Jailbreaking in the Haystack",
+      "url": "https://arxiv.org/pdf/2511.04707",
+      "authors": [
+        "Rishi Rajesh Shah",
+        "Chen Henry Wu",
+        "Shashwat Saxena",
+        "Ziqian Zhong",
+        "Alexander Robey",
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards": [],
+      "year": "2025",
+      "code": "https://github.com/AR-FORUM/NINJA_Attack",
+      "website": "https://ar-forum.github.io/ninjaattackweb/",
+      "enabled": true,
+      "abstract": "Recent advances in long-context language models (LMs) have enabled million-token inputs, expanding their capabilities across complex tasks like computer-use agents. Yet, the safety implications of these extended contexts remain unclear. To bridge this gap, we introduce NINJA (short for Needle-in-haystack jailbreak attack), a method that jailbreaks aligned LMs by appending benign, model-generated content to harmful user goals. Critical to our method is the observation that the position of harmful goals play an important role in safety. Experiments on standard safety benchmark, HarmBench, show that NINJA significantly increases attack success rates across state-of-the-art open and proprietary models, including LLaMA, Qwen, Mistral, and Gemini. Unlike prior jailbreaking methods, our approach is low-resource, transferable, and less detectable. Moreover, we show that NINJA is compute-optimal -- under a fixed compute budget, increasing context length can outperform increasing the number of trials in best-of-N jailbreak. These findings reveal that even benign long contexts -- when crafted with careful goal positioning -- introduce fundamental vulnerabilities in modern LMs."
+    },
+    {
       "title": "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases",
       "url": "https://arxiv.org/pdf/2510.20270",
       "authors": [
