@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   { date: '[Nov 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at MIT.'}, 
   { date: '[Oct 2025]', content:'Ziqian releases <a href = "https://arxiv.org/abs/2510.20270">Impossible Bench</a> to identify and measure reward hacking in coding agents.'}, 
   { date: '[Oct 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at Cornell Tech.'}, 
+  { date: '[Sep 2025]', content:'Aditi joined the <a href = "https://twimlai.com/podcast/twimlai/is-it-time-to-rethink-llm-pre-training/"> TWIML podcast </a> to talk about our research on rethinking pretraining.'}, 
   { date: '[July 2025]', content: 'Aditi receives the NSF CAREER award.'},
   { date: '[July 2025]', content: 'Congrats to Vaishnavh, Chen and Charles for an ICML 2025 Outstanding Paper Award. Check out their work on <a href = "https://arxiv.org/pdf/2504.15266"> creativity </a> of language models.', highlights:['Outstanding Paper Award']},
 	{ date: '[July 2025]', content: 'Aditi is giving two ICML workshop talks at <a href = "https://dataworldicml2025.github.io/index.html"> DataWorld: Unifying Data Curation Frameworks Across Domains </a> and <a href = "https://sites.google.com/view/moss2025/"> Methods and Opportunities at Small Scale</a>.' },

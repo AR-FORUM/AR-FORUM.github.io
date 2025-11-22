@@ -2,6 +2,22 @@
   "preprints": [],
   "publications": [
     {
+      "title": "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases",
+      "url": "https://arxiv.org/pdf/2510.20270",
+      "authors": [
+        "Ziqian Zhong", 
+        "Aditi Raghunathan", 
+        "Nicholas Carlini"
+      ],
+      "venue": "arXiv",
+      "awards":[], 
+      "year": "2025",
+      "code": "https://github.com/safety-research/impossiblebench",
+      "awards": [],
+      "enabled": true,
+      "abstract": "The tendency to find and exploit \\\"shortcuts\\\" to complete tasks poses significant risks for reliable assessment and deployment of large language models (LLMs). For example, an LLM agent with access to unit tests may delete failing tests rather than fix the underlying bug. Such behavior undermines both the validity of benchmark results and the reliability of real-world LLM coding assistant deployments.\\nTo quantify, study, and mitigate such behavior, we introduce ImpossibleBench, a benchmark framework that systematically measures LLM agents' propensity to exploit test cases. ImpossibleBench creates \\\"impossible\\\" variants of tasks from existing benchmarks like LiveCodeBench and SWE-bench by introducing direct conflicts between the natural-language specification and the unit tests. We measure an agent's \\\"cheating rate\\\" as its pass rate on these impossible tasks, where any pass necessarily implies a specification-violating shortcut.\\nAs a practical framework, ImpossibleBench is not just an evaluation but a versatile tool. We demonstrate its utility for: (1) studying model behaviors, revealing more fine-grained details of cheating behaviors from simple test modification to complex operator overloading; (2) context engineering, showing how prompt, test access and feedback loop affect cheating rates; and (3) developing monitoring tools, providing a testbed with verified deceptive solutions. We hope ImpossibleBench serves as a useful framework for building more robust and reliable LLM systems."
+    },
+      {
       "title": "Jailbreaking in the Haystack",
       "url": "https://arxiv.org/pdf/2511.04707",
       "authors": [
@@ -19,22 +35,6 @@
       "website": "https://ar-forum.github.io/ninjaattackweb/",
       "enabled": true,
       "abstract": "Recent advances in long-context language models (LMs) have enabled million-token inputs, expanding their capabilities across complex tasks like computer-use agents. Yet, the safety implications of these extended contexts remain unclear. To bridge this gap, we introduce NINJA (short for Needle-in-haystack jailbreak attack), a method that jailbreaks aligned LMs by appending benign, model-generated content to harmful user goals. Critical to our method is the observation that the position of harmful goals play an important role in safety. Experiments on standard safety benchmark, HarmBench, show that NINJA significantly increases attack success rates across state-of-the-art open and proprietary models, including LLaMA, Qwen, Mistral, and Gemini. Unlike prior jailbreaking methods, our approach is low-resource, transferable, and less detectable. Moreover, we show that NINJA is compute-optimal -- under a fixed compute budget, increasing context length can outperform increasing the number of trials in best-of-N jailbreak. These findings reveal that even benign long contexts -- when crafted with careful goal positioning -- introduce fundamental vulnerabilities in modern LMs."
-    },
-    {
-      "title": "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases",
-      "url": "https://arxiv.org/pdf/2510.20270",
-      "authors": [
-        "Ziqian Zhong", 
-        "Aditi Raghunathan", 
-        "Nicholas Carlini"
-      ],
-      "venue": "arXiv",
-      "awards":[], 
-      "year": "2025",
-      "code": "https://github.com/safety-research/impossiblebench",
-      "awards": [],
-      "enabled": true,
-      "abstract": "The tendency to find and exploit \\\"shortcuts\\\" to complete tasks poses significant risks for reliable assessment and deployment of large language models (LLMs). For example, an LLM agent with access to unit tests may delete failing tests rather than fix the underlying bug. Such behavior undermines both the validity of benchmark results and the reliability of real-world LLM coding assistant deployments.\\nTo quantify, study, and mitigate such behavior, we introduce ImpossibleBench, a benchmark framework that systematically measures LLM agents' propensity to exploit test cases. ImpossibleBench creates \\\"impossible\\\" variants of tasks from existing benchmarks like LiveCodeBench and SWE-bench by introducing direct conflicts between the natural-language specification and the unit tests. We measure an agent's \\\"cheating rate\\\" as its pass rate on these impossible tasks, where any pass necessarily implies a specification-violating shortcut.\\nAs a practical framework, ImpossibleBench is not just an evaluation but a versatile tool. We demonstrate its utility for: (1) studying model behaviors, revealing more fine-grained details of cheating behaviors from simple test modification to complex operator overloading; (2) context engineering, showing how prompt, test access and feedback loop affect cheating rates; and (3) developing monitoring tools, providing a testbed with verified deceptive solutions. We hope ImpossibleBench serves as a useful framework for building more robust and reliable LLM systems."
     },
     {
       "title": "Watch the Weights: Unsupervised monitoring and control of fine-tuned LLMs",
@@ -207,11 +207,28 @@
         "Kiril Gashteovski",
         "Graham Neubig"
       ],
-      "venue": "arXiv",
+      "venue": "EMNLP",
       "year": "2025",
       "awards": [],
       "enabled": true,
       "abstract": "Improvements in language model capabilities are often attributed to increasing model size or training data, but in some cases smaller models trained on curated data or with different architectural decisions can outperform larger ones trained on more tokens. What accounts for this? To quantify the impact of these design choices, we meta-analyze 92 open-source pretrained models across a wide array of scales, including state-of-the-art open-weights models as well as less performant models and those with less conventional design decisions. We find that by incorporating features besides model size and number of training tokens, we can achieve a relative 3-28% increase in ability to predict downstream performance compared with using scale alone. Analysis of model design decisions reveal insights into data composition, such as the trade-off between language and code tasks at 15-25\\% code, as well as the better performance of some architectural decisions such as choosing rotary over learned embeddings. Broadly, our framework lays a foundation for more systematic investigation of how model development choices shape final capabilities."
+    },
+    {
+      "title": "Reasoning as an Adaptive Defense for Safety",
+      "url": "https://arxiv.org/pdf/2507.00971",
+      "authors": [
+        "Taeyoun Kim", 
+        "Fahim Tajwar", 
+        "Aditi Raghunathan", 
+        "Aviral Kumar"
+      ],
+      "venue": "NeurIPS",
+      "awards": [],
+      "year": "2025",
+      "code": "",
+      "website": "",
+      "enabled": true,
+      "abstract": "Reasoning methods that adaptively allocate test-time compute have advanced LLM performance on easy to verify domains such as math and code. In this work, we study how to utilize this approach to train models that exhibit a degree of robustness to safety vulnerabilities, and show that doing so can provide benefits. We build a recipe called TARS (Training Adaptive Reasoners for Safety), a reinforcement learning (RL) approach that trains models to reason about safety using chain-of-thought traces and a reward signal that balances safety with task completion. To build TARS, we identify three critical design choices: (1) a ``lightweight'' warmstart SFT stage, (2) a mix of harmful, harmless, and ambiguous prompts to prevent shortcut behaviors such as too many refusals, and (3) a reward function to prevent degeneration of reasoning capabilities during training. Models trained with TARS exhibit adaptive behaviors by spending more compute on ambiguous queries, leading to better safety-refusal trade-offs. They also internally learn to better distinguish between safe and unsafe prompts and attain greater robustness to both white-box (e.g., GCG) and black-box attacks (e.g., PAIR). Overall, our work provides an effective, open recipe for training LLMs against jailbreaks and harmful requests by reasoning per prompt."
     },
     {
       "title": "Vulnerability of Text-Matching in ML/AI Conference Reviewer Assignments to Collusions",
