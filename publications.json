@@ -1,7 +1,39 @@
 {
   "preprints": [],
-  "publications": [
-    {
+    "publications": [
+      {
+      "title": "Differential Smoothing Mitigates Sharpening and Improves LLM Reasoning",
+      "url": "https://arxiv.org/pdf/2511.19942",
+      "authors": [
+        "Jingchu Gai", 
+        "Guanning Zeng", 
+        "Huaqing Zhang", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards":[], 
+      "year": "2025",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "It is widely recognized that reinforcement learning (RL) fine-tuning of large language models often leads to diversity collapse, where outputs lack variety. Prior work has proposed a range of heuristics to counteract this effect, but these methods are ad hoc: they frequently trade off correctness for diversity, their effectiveness varies across tasks, and in some cases they even contradict one another. In this work, we place these observations on a rigorous foundation. We first provide a formal proof of why RL fine-tuning exhibits diversity collapse via a selection and reinforcement bias. Next, we make a key observation that any reward modification to address diversity collapse only needs to be applied on the correct trajectories. Building directly on this analysis, we introduce a principled method -- differential smoothing -- that provably improves both correctness and diversity, outperforming vanilla RL as well as widely used entropy-based heuristics. Our theory precisely characterizes when existing heuristics help and why they fail, while showing that differential smoothing is universally superior. Extensive experiments with models from 1B to 7B parameters, across domains including CountDown and real-world mathematical reasoning, demonstrate consistent gains. Differential smoothing improves both Pass@1 and Pass@k, with up to 6.7% improvements on AIME24 dataset."   },
+      {
+      "title": "Mode-Conditioning Unlocks Superior Test-Time Scaling",
+      "url": "https://www.arxiv.org/pdf/2512.01127",
+      "authors": [
+        "Chen Henry Wu", 
+        "Sachin Goyal", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards":[], 
+      "year": "2025",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "Parallel sampling promises substantial gains in test-time scaling, but its effectiveness is sharply limited by diversity collapse, where models concentrate on a few modes and repeated samples produce the same mistakes. We propose the mode-conditioning (ModC) framework, which explicitly allocates test-time compute across reasoning modes using either specialist models or mode-specific prefixes. ModC consistently improves scaling across controlled graph-search tasks and large-scale reasoning benchmarks, spanning model families and sizes from 0.5B to 7B. On OpenThoughts, fine-tuning Qwen2.5-7B with ModC achieves a 4x efficiency gain over standard training while also improving the maximum attainable Pass@k. We further show that gradient clustering enables ModC without explicit mode labels, yielding up to 10% gains on datasets such as NuminaMath. Finally, we show that ModC improves reinforcement learning (RL) and can further boost diversity-inducing RL methods. These results demonstrate that standard training underutilizes the diversity in data, and that ModC provides a simple, effective remedy for unlocking the full benefits of diversity in test-time scaling."
+    },	
+      {
       "title": "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases",
       "url": "https://arxiv.org/pdf/2510.20270",
       "authors": [
