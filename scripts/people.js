@@ -76,15 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Gaurav Ghosal",   photo: "images/member_photos/gaurav_ghosal.png",   website: "https://grghosal.github.io", interests: "", note: "" },
       { name: "Chen Wu",         photo: "images/member_photos/chen_wu.png",         website: "https://chenwu.io/", interests: "" },
       { name: "Ziqian Zhong",    photo: "images/member_photos/ziqian_zhong.png",    website: "https://fjzzq2002.github.io/", interests: "" },
-      { name: "Sachin Goyal",    photo: "images/member_photos/sachin_goyal.png",    website: "https://saching007.github.io/", interests: "", note:"collaborator"},
+      { name: "Jingchu Gai",    photo: "images/member_photos/jingchu_gai.png",    website: "https://scholar.google.com/citations?user=Oz9rdHUAAAAJ&hl=en", interests: "" },
       { name: "Pratyush Maini",    photo: "images/member_photos/pratyush_maini.png",    website: "https://pratyushmaini.github.io/", interests: "", note:"collaborator"},
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Neil Kale"}, { name: "Rishi Shah"}, { name: "Manan Agarwal"}, { name: "Arnav Goel"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, 
-      { name: "Jerick Shi", note:"co-advised with Vince Conitzer"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"}, { name: "Catherline Li"}, 
+      { name: "Neil Kale"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, {name:"Catherine Li"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"} 
     ],
     alumni: [
+      { name: "Sachin Goyal",  prevPosition: "PhD at CMU",  nextPosition: "Anthropic", note: "advised by Zico Kolter" },
       { name: "Tanishq Kumar",  prevPosition: "Undergrad at Harvard",  nextPosition: "PhD at Stanford", note: "" },
       { name: "Taeyoun Kim",     prevPosition: "Masters at CMU", nextPosition: "Researcher at CMU", note: "" },
       { name: "Charles Ding",   prevPosition: "Undergrad at CMU",      nextPosition: "Masters at Stanford", note: "" },
