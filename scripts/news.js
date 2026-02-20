@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     const newsItems = [
   { date: '[Feb 2026]', content: 'Aditi receives the Sloan Research Fellowship!'},
-  { date: '[Nov 2025]', content: 'Congrats to Ziqian for Runner-Up Best Paper Award at NeurIPS 2025 workshop on reliable machine learning. Check out <a href = "https://arxiv.org/abs/2508.00161">his work</a>.', highlights:['Runner-Up Best Paper Award']},
+  { date: '[Nov 2025]', content: 'Congrats to Ziqian for Runner-Up Best Paper Award at NeurIPS 2025 workshop on reliable machine learning. Check out <a href = "https://arxiv.org/abs/2508.00161"> their work</a>.', highlights:['Runner-Up Best Paper Award']},
   { date: '[Nov 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at MIT.'}, 
   { date: '[Oct 2025]', content:'Ziqian releases <a href = "https://arxiv.org/abs/2510.20270">Impossible Bench</a> to identify and measure reward hacking in coding agents.'}, 
   { date: '[Oct 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at Cornell Tech.'}, 
