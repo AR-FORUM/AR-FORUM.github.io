@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const newsList = document.getElementById('newsList');
   
     const newsItems = [
+  { date: '[Apr 2026]', content: 'Ishaan Watts is presenting <i>Sharpness-aware pretraining mitigates catastrophic forgetting</i> as an oral at the <a href="https://sites.google.com/view/icbinb-2026/home?authuser=0">ICBINB</a> workshop at ICLR 2026.', highlights:['oral']},
+  { date: '[Apr 2026]', content: 'Aditi is presenting at the <a href="https://sites.google.com/view/memagent-iclr26/">MemAgents</a> and <a href="https://sites.google.com/view/icbinb-2026/home?authuser=0">I Can\'t Believe It\'s Not Better</a> workshops at ICLR 2026.'},
   { date: '[Feb 2026]', content: 'Aditi receives the Sloan Research Fellowship!'},
   { date: '[Nov 2025]', content: 'Congrats to Ziqian for Runner-Up Best Paper Award at NeurIPS 2025 workshop on reliable machine learning. Check out <a href = "https://arxiv.org/abs/2508.00161"> their work</a>.', highlights:['Runner-Up Best Paper Award']},
   { date: '[Nov 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at MIT.'}, 
