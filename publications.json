@@ -16,6 +16,86 @@
       "awards": [],
       "enabled": true,
       "abstract": "Post-hoc unlearning for LLMs is fundamentally limited: it either degrades the model beyond the intended target or fails to fully remove the targeted information. This difficulty primarily arises from how standard models store information. We propose NULLs (Natively Unlearnable LLMs), which impose an architectural separation between sources during training. The central challenge is routing source-specific memorization into removable components without fragmenting the representations that enable generalization. NULLs addresses this by partitioning each layer's neurons into a shared subset that learns transferable structure across all sources, and a pool of memorization sink neurons over which each source is assigned a known sparse mask. At deployment time, unlearning reduces to simply disabling a source's mask over the sinks. Because these masks are combinatorial, a fixed pool of 8,000 neurons supports millions of independently controllable sources without increasing model size. On Wikipedia (6M articles), disabling an article's sink sharply suppresses article-specific knowledge while preserving semantically related facts, closely matching the gold standard of retraining from scratch. Gradient-based unlearning, by contrast, degrades shared and unique knowledge at comparable rates. In a Harry Potter case study, NULLs removes topic-level knowledge and remains resistant to adversarial extraction and fine-tuning-based relearning attacks that rapidly undo post-hoc methods. These results demonstrate that natively unlearnable language models are feasible via memorization sinks with minimal degradation of general capabilities." },
+      
+      {
+      "title": "Sharpness-Aware Pretraining Mitigates Catastrophic Forgetting",
+      "url": "",
+      "authors": [
+        "Ishaan Watts", 
+        "Catherine Li",
+        "Sachin Goyal", 
+        "Jacob Mitchell Springer", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "awards":[], 
+      "year": "2026",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "" },
+      
+      {
+      "title": "Annotations Mitigate Post-training Mode Collapse",
+      "url": "",
+      "authors": [
+        "Jacob Mitchell Springer", 
+        "Madhu Advani",
+        "Lukas Aichberger", 
+        "Arwen Bradley", 
+        "Eran Malach", 
+        "Omid Saremi", 
+        "Sinead Williamson", 
+        "Preetum Nakkiran", 
+        "Etai Littwin", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "awards":[], 
+      "year": "2026",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "" },
+      {
+      "title": "Demystifying Entropy Control in LLM RL Training: Theoretical Analysis and Dynamic Scheduling",
+      "url": "",
+      "authors": [
+        "Jingchu Gai", 
+        "Guanning Zeng", 
+        "Huaqing Zhang",
+        "Han Zhong", 
+        "Yige Hong", 
+        "Andrej Risteski", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "awards":[], 
+      "year": "2026",
+      "code": "",
+      "awards": ["Spotlight"],
+      "enabled": true,
+      "abstract": "" },
+
+      {
+      "title": "Demystifying Entropy Control in LLM RL Training: Theoretical Analysis and Dynamic Scheduling",
+      "url": "",
+      "authors": [
+        "Jingchu Gai", 
+        "Guanning Zeng", 
+        "Huaqing Zhang",
+        "Han Zhong", 
+        "Yige Hong", 
+        "Andrej Risteski", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "ICML",
+      "awards":[], 
+      "year": "2026",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "" },      
       {
       "title": "Differential Smoothing Mitigates Sharpening and Improves LLM Reasoning",
       "url": "https://arxiv.org/pdf/2511.19942",
@@ -25,9 +105,9 @@
         "Huaqing Zhang", 
         "Aditi Raghunathan"
       ],
-      "venue": "arXiv",
+      "venue": "ICML",
       "awards":[], 
-      "year": "2025",
+      "year": "2026",
       "code": "",
       "awards": [],
       "enabled": true,
