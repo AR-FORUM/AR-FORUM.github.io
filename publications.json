@@ -75,27 +75,7 @@
       "code": "",
       "awards": ["Spotlight"],
       "enabled": true,
-      "abstract": "" },
-
-      {
-      "title": "Demystifying Entropy Control in LLM RL Training: Theoretical Analysis and Dynamic Scheduling",
-      "url": "",
-      "authors": [
-        "Jingchu Gai", 
-        "Guanning Zeng", 
-        "Huaqing Zhang",
-        "Han Zhong", 
-        "Yige Hong", 
-        "Andrej Risteski", 
-        "Aditi Raghunathan"
-      ],
-      "venue": "ICML",
-      "awards":[], 
-      "year": "2026",
-      "code": "",
-      "awards": [],
-      "enabled": true,
-      "abstract": "" },      
+      "abstract": "" },     
       {
       "title": "Differential Smoothing Mitigates Sharpening and Improves LLM Reasoning",
       "url": "https://arxiv.org/pdf/2511.19942",
