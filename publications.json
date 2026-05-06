@@ -18,8 +18,42 @@
       "abstract": "Post-hoc unlearning for LLMs is fundamentally limited: it either degrades the model beyond the intended target or fails to fully remove the targeted information. This difficulty primarily arises from how standard models store information. We propose NULLs (Natively Unlearnable LLMs), which impose an architectural separation between sources during training. The central challenge is routing source-specific memorization into removable components without fragmenting the representations that enable generalization. NULLs addresses this by partitioning each layer's neurons into a shared subset that learns transferable structure across all sources, and a pool of memorization sink neurons over which each source is assigned a known sparse mask. At deployment time, unlearning reduces to simply disabling a source's mask over the sinks. Because these masks are combinatorial, a fixed pool of 8,000 neurons supports millions of independently controllable sources without increasing model size. On Wikipedia (6M articles), disabling an article's sink sharply suppresses article-specific knowledge while preserving semantically related facts, closely matching the gold standard of retraining from scratch. Gradient-based unlearning, by contrast, degrades shared and unique knowledge at comparable rates. In a Harry Potter case study, NULLs removes topic-level knowledge and remains resistant to adversarial extraction and fine-tuning-based relearning attacks that rapidly undo post-hoc methods. These results demonstrate that natively unlearnable language models are feasible via memorization sinks with minimal degradation of general capabilities." },
       
       {
+      "title": "Pando: Do Interpretability Methods Work When Models Won't Explain Themselves?",
+      "url": "https://arxiv.org/pdf/2604.11061",
+      "authors": [
+        "Ziqian Zhong", 
+        "Aashiq Muhamed",
+        "Mona T. Diab", 
+        "Virginia Smith", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards":[""], 
+      "year": "2026",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract": "Mechanistic interpretability is often motivated for alignment auditing, where a model's verbal explanations can be absent, incomplete, or misleading. Yet many evaluations do not control whether black-box prompting alone can recover the target behavior, so apparent gains from white-box tools may reflect elicitation rather than internal signal; we call this the elicitation confounder. We introduce Pando, a model-organism benchmark that breaks this confound via an explanation axis: models are trained to produce either faithful explanations of the true rule, no explanation, or confident but unfaithful explanations of a disjoint distractor rule. Across 720 finetuned models implementing hidden decision-tree rules, agents predict held-out model decisions from 10 labeled query-response pairs, optionally augmented with one interpretability tool output. When explanations are faithful, black-box elicitation matches or exceeds all white-box methods; when explanations are absent or misleading, gradient-based attribution improves accuracy by 3-5 percentage points, and relevance patching, RelP, gives the largest gains, while logit lens, sparse autoencoders, and circuit tracing provide no reliable benefit. Variance decomposition suggests gradients track decision computation, which fields causally drive the output, whereas other readouts are dominated by task representation, biases toward field identity and value. We release all models, code, and evaluation infrastructure."}, 
+
+      {
+      "title": "Hodoscope: Unsupervised Monitoring for AI Misbehaviors",
+      "url": "https://arxiv.org/pdf/2604.11072",
+      "authors": [
+        "Ziqian Zhong", 
+        "Shashwat Saxena", 
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards":[""], 
+      "year": "2026",
+      "code": "",
+      "awards": [],
+      "enabled": true,
+      "abstract":"Existing approaches to monitoring AI agents rely on supervised evaluation: human-written rules or LLM-based judges that check for known failure modes. However, novel misbehaviors may fall outside predefined categories entirely and LLM-based judges can be unreliable. To address this, we formulate unsupervised monitoring, drawing an analogy to unsupervised learning. Rather than checking for specific misbehaviors, an unsupervised monitor assists humans in discovering problematic agent behaviors without prior assumptions about what counts as problematic, leaving that determination to the human. We observe that problematic behaviors are often distinctive: a model exploiting a benchmark loophole exhibits actions absent from well-behaved baselines, and a vulnerability unique to one evaluation manifests as behavioral anomalies when the same model runs across multiple benchmarks. This motivates using group-wise behavioral differences as the primary signal for unsupervised monitoring. We introduce Hodoscope, a tool that operationalizes this insight. Hodoscope compares behavior distributions across groups and highlights distinctive and potentially suspicious action patterns for human review. Using Hodoscope, we discover a previously unknown vulnerability in the Commit0 benchmark (unsquashed git history allowing ground-truth recovery, inflating scores for at least five models) and independently recover known exploits on ImpossibleBench and SWE-bench. Quantitative evaluation estimates that our method reduces review effort by 6-23× compared to naive uniform sampling. Finally, we show that behavior descriptions discovered through Hodoscope could improve the detection accuracy of LLM-based judges, demonstrating a path from unsupervised to supervised monitoring."}, 
+      
+      {
       "title": "Sharpness-Aware Pretraining Mitigates Catastrophic Forgetting",
-      "url": "",
+      "url": "https://arxiv.org/pdf/2605.02105",
       "authors": [
         "Ishaan Watts", 
         "Catherine Li",
@@ -28,12 +62,12 @@
         "Aditi Raghunathan"
       ],
       "venue": "ICML",
-      "awards":[], 
+      "awards":["Spotlight at ICBINB Workshop at ICLR 2026"], 
       "year": "2026",
       "code": "",
       "awards": [],
       "enabled": true,
-      "abstract": "" },
+      "abstract": "Pretraining optimizers are tuned to produce the strongest possible base model, on the assumption that a stronger starting point yields a stronger model after subsequent changes like post-training and quantization. This overlooks the geometry of the base model which controls how much of the base model's capabilities survive subsequent parameter updates. We study three pretraining optimization approaches that bias optimization toward flatter minima: Sharpness-Aware Minimization (SAM), large learning rates, and shortened learning rate annealing periods. Across model sizes ranging from 20M to 150M parameters, we find that these interventions consistently improve downstream performance after post-training on five common datasets with up to 80% less forgetting. These principles hold at scale: a short SAM mid-training phase applied to an existing OLMo-2-1B checkpoint reduces forgetting by 31% after MetaMath post-training and by 40% after 4-bit quantization." },
       
       {
       "title": "Annotations Mitigate Post-training Mode Collapse",
