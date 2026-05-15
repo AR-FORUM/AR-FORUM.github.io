@@ -71,20 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Data (add optional `note` anywhere) ---
   const data = {
     phdAdvisees: [
-      { name: "Christina Baek", photo: "images/member_photos/christina_baek.png", website: "https://kebaek.github.io/", interests: "", note: "co-advised with Zico Kolter" },
       { name: "Jacob Springer",  photo: "images/member_photos/jacob_springer.png",  website: "https://sprin.xyz/", interests: "", note: "" },
       { name: "Gaurav Ghosal",   photo: "images/member_photos/gaurav_ghosal.png",   website: "https://grghosal.github.io", interests: "", note: "" },
       { name: "Chen Wu",         photo: "images/member_photos/chen_wu.png",         website: "https://chenwu.io/", interests: "" },
       { name: "Ziqian Zhong",    photo: "images/member_photos/ziqian_zhong.png",    website: "https://fjzzq2002.github.io/", interests: "" },
-      { name: "Jingchu Gai",    photo: "images/member_photos/jingchu_gai.png",    website: "https://scholar.google.com/citations?user=Oz9rdHUAAAAJ&hl=en", interests: "" },
+      { name: "Jingchu Gai",    photo: "images/member_photos/jingchu_gai.png",    website: "https://scholar.google.com/citations?user=Oz9rdHUAAAAJ&hl=en", interests: "", note:"co-advised with Andrej Risteski"},
       { name: "Pratyush Maini",    photo: "images/member_photos/pratyush_maini.png",    website: "https://pratyushmaini.github.io/", interests: "", note:"collaborator"},
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Neil Kale"}, { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, {name:"Catherine Li"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"} 
+      { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, { name: "Bryan Wang"}, {name:"Catherine Li"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"} 
     ],
     alumni: [
+      { name: "Christina Baek", prevPosition: "PhD at CMU", nextPosition: "OpenAI", interests: "", note: "co-advised with Zico Kolter" },
       { name: "Sachin Goyal",  prevPosition: "PhD at CMU",  nextPosition: "Anthropic", note: "advised by Zico Kolter" },
+      { name: "Pratyush Maini",  prevPosition: "PhD at CMU",  nextPosition: "Founding member of DatologyAI", note: "advised by Zico Kolter" },
       { name: "Tanishq Kumar",  prevPosition: "Undergrad at Harvard",  nextPosition: "PhD at Stanford", note: "" },
       { name: "Taeyoun Kim",     prevPosition: "Masters at CMU", nextPosition: "Researcher at CMU", note: "" },
       { name: "Charles Ding",   prevPosition: "Undergrad at CMU",      nextPosition: "Masters at Stanford", note: "" },
