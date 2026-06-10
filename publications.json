@@ -2,6 +2,44 @@
 "preprints": [],
     "publications": [
       {
+      "title": "The Finetuner's Fallacy: When to Pretrain with Your Finetuning Data",
+      "url": "https://arxiv.org/abs/2603.16177",
+      "authors": [
+        "Christina Baek",
+        "...",
+        "Aditi Raghunathan",
+        "J. Zico Kolter",
+        "DatologyAI",
+        "...",
+        "Pratyush Maini"
+      ],
+      "venue": "arXiv",
+      "awards": [],
+      "year": "2026",
+      "code": "",
+      "enabled": true,
+      "abstract": "Real-world model deployments demand strong performance on narrow domains where data is often scarce. Typically, practitioners finetune models to specialize them, but this risks overfitting to the domain and forgetting general knowledge. We study a simple strategy, specialized pretraining (SPT), where a small domain dataset, typically reserved for finetuning, is repeated starting from pretraining as a fraction of the total tokens. Across three specialized domains (ChemPile, MusicPile, and ProofPile), SPT improves domain performance and preserves general capabilities after finetuning compared to standard pretraining. In our experiments, SPT reduces the pretraining tokens needed to reach a given domain performance by up to 1.75x. These gains grow when the target domain is underrepresented in the pretraining corpus: on domains far from web text, a 1B SPT model outperforms a 3B standard pretrained model. Beyond these empirical gains, we derive overfitting scaling laws to guide practitioners in selecting the optimal domain-data repetition for a given pretraining compute budget. Our observations reveal the finetuner's fallacy: while finetuning may appear to be the cheapest path to domain adaptation, introducing specialized domain data during pretraining stretches its utility. SPT yields better specialized domain performance (via reduced overfitting across repeated exposures) and better general domain performance (via reduced forgetting during finetuning), ultimately achieving stronger results with fewer parameters and less total compute when amortized over inference. To get the most out of domain data, incorporate it as early in training as possible."
+      },
+
+      {
+      "title": "Early Data Exposure Improves Robustness to Subsequent Fine-Tuning",
+      "url": "https://arxiv.org/abs/2605.12705",
+      "authors": [
+        "Lawrence Feng",
+        "Gaurav R. Ghosal",
+        "Jacob Mitchell Springer",
+        "Ziqian Zhong",
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards": [],
+      "year": "2026",
+      "code": "",
+      "enabled": true,
+      "abstract": "How can we train models whose post-trained capabilities survive subsequent fine-tuning? Rather than focusing on downstream interventions to mitigate forgetting of upstream capabilities, we study how upstream training choices - that is, the manner in which a capability is acquired - shape how robustly that capability is retained. We investigate this question in a controlled three-stage language-model pipeline: pretraining, post-training to acquire a target capability, and downstream fine-tuning on a new objective. Across 135M and 1B models, two post-training domains, and two downstream fine-tuning tasks, we find that immediate post-training performance does not reliably predict retention after subsequent fine-tuning: training recipes that look equivalent immediately after post-training can retain the target capability very differently after subsequent fine-tuning. In particular, early exposure - mixing post-training data into pretraining - consistently improves the frontier between retained upstream performance and downstream performance. In compute-matched experiments, where the target data must be allocated between pretraining and post-training, we find that the optimum lies at neither extreme. Together with our other empirical and theoretical findings, this supports the view that post-training drives immediate specialization while early exposure improves robustness to later forgetting. Replay and dropout, typically used to mitigate forgetting as it occurs during fine-tuning, provide complementary gains to early exposure when applied during post-training. Our findings suggest that robustness to subsequent fine-tuning should be treated as a first-class objective of upstream training, addressed preventatively through choices like early exposure rather than reactively during fine-tuning itself."
+      },
+
+      {
       "title": "Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops",
       "url": "https://arxiv.org/abs/2606.08960",
       "authors": [
