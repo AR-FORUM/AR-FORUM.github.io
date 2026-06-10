@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "Xingyu Dang",     photo: "images/member_photos/xingyu_dang.jpg",     website: "https://xingyudang.com", interests: "", note:"collaborator"}
     ],
     extendedGroup: [
-      { name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, { name: "Bryan Wang"}, {name:"Catherine Li"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"} 
+      {name: "Lawrence Feng"}, {name: "Shashwat Saxena"},{ name: "Ishaan Watts"}, { name: "Bryan Wang"}, {name:"Catherine Li"}, { name: "Sophia Sandholm"}, { name: "Olina Mukherjee"} 
     ],
     alumni: [
       { name: "Christina Baek", prevPosition: "PhD at CMU", nextPosition: "OpenAI", interests: "", note: "co-advised by Zico Kolter" },
