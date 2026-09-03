@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const newsList = document.getElementById('newsList');
   
     const newsItems = [
+  { date: '[Sep 2026]', content: 'Aditi is presenting <i>Disentangling memorization from generalization by design</i> at the <a href="https://kempnerinstitute.harvard.edu/learning-dynamics-workshop/ld-program-schedule/">Learning Dynamics in Natural and Artificial Intelligence</a> workshop at the Kempner Institute.'},
   { date: '[Aug 2026]', content:'Ziqian shares new work with Transluce on <a href = "https://x.com/TransluceAI/status/2085455114924638320">user awareness</a>, plus new work on <a href = "https://x.com/fjzzq2002/status/2082904767236628900">subliminal learning of model identity</a>.', highlights:['user awareness', 'subliminal learning of model identity']},
   { date: '[Jun 2026]', content: 'Aditi was named to Delta Institute\'s inaugural <a href="https://deltainstitutes.org/rising-professors-2026">Rising Professors: 2026</a> list.', highlights:['Rising Professors']},
   { date: '[Apr 2026]', content: 'Ishaan Watts is presenting <i>Sharpness-aware pretraining mitigates catastrophic forgetting</i> as an oral at the <a href="https://sites.google.com/view/icbinb-2026/home?authuser=0">ICBINB</a> workshop at ICLR 2026.', highlights:['oral']},
