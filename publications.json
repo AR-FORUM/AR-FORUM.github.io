@@ -2,6 +2,61 @@
 "preprints": [],
     "publications": [
       {
+      "title": "Off-Policy Merging Beats On-Policy Self-Distillation for Continual Learning",
+      "url": "https://arxiv.org/abs/2610.05872",
+      "authors": [
+        "Chen Henry Wu",
+        "Thomas Zhang",
+        "Aditi Raghunathan"
+      ],
+      "venue": "arXiv",
+      "awards": [],
+      "year": "2026",
+      "code": "",
+      "enabled": true,
+      "abstract": ""
+      },
+
+      {
+      "title": "Flow Map Language Models: One-step Language Modeling via Continuous Denoising",
+      "url": "https://arxiv.org/abs/2602.16813",
+      "authors": [
+        "Chanhyuk Lee",
+        "Jaehoon Yoo",
+        "Manan Agarwal",
+        "Sheel Shah",
+        "Jerry Huang",
+        "Aditi Raghunathan",
+        "Seunghoon Hong",
+        "Nicholas M. Boffi",
+        "Jinwoo Kim"
+      ],
+      "venue": "NeurIPS",
+      "awards": [],
+      "year": "2026",
+      "code": "https://github.com/david3684/flm",
+      "enabled": true,
+      "abstract": ""
+      },
+
+      {
+      "title": "Pretraining Data Scale Reverses the AdamW–Muon Fine-Tuning Gap",
+      "url": "https://openreview.net/forum?id=INti5Xsbsq",
+      "authors": [
+        "Catherine Li",
+        "Jingchu Gai",
+        "Jacob Mitchell Springer",
+        "Aditi Raghunathan"
+      ],
+      "venue": "MOSS Workshop at COLM",
+      "awards": ["Oral at MOSS Workshop at COLM 2026"],
+      "year": "2026",
+      "code": "",
+      "enabled": true,
+      "abstract": ""
+      },
+
+      {
       "title": "Base Models Look Human To AI Detectors",
       "url": "https://arxiv.org/abs/2605.19516",
       "authors": [
@@ -83,7 +138,7 @@
         "Chen Henry Wu",
         "Aditi Raghunathan"
       ],
-      "venue": "arXiv",
+      "venue": "NeurIPS",
       "awards": [],
       "year": "2026",
       "code": "",
@@ -121,10 +176,9 @@
         "Aditi Raghunathan"
       ],
       "venue": "arXiv",
-      "awards":[], 
+      "awards": ["Best Paper Award at HAIPS Workshop at COLM 2026"],
       "year": "2026",
       "code": "",
-      "awards": [],
       "enabled": true,
       "abstract": "Post-hoc unlearning for LLMs is fundamentally limited: it either degrades the model beyond the intended target or fails to fully remove the targeted information. This difficulty primarily arises from how standard models store information. We propose NULLs (Natively Unlearnable LLMs), which impose an architectural separation between sources during training. The central challenge is routing source-specific memorization into removable components without fragmenting the representations that enable generalization. NULLs addresses this by partitioning each layer's neurons into a shared subset that learns transferable structure across all sources, and a pool of memorization sink neurons over which each source is assigned a known sparse mask. At deployment time, unlearning reduces to simply disabling a source's mask over the sinks. Because these masks are combinatorial, a fixed pool of 8,000 neurons supports millions of independently controllable sources without increasing model size. On Wikipedia (6M articles), disabling an article's sink sharply suppresses article-specific knowledge while preserving semantically related facts, closely matching the gold standard of retraining from scratch. Gradient-based unlearning, by contrast, degrades shared and unique knowledge at comparable rates. In a Harry Potter case study, NULLs removes topic-level knowledge and remains resistant to adversarial extraction and fine-tuning-based relearning attacks that rapidly undo post-hoc methods. These results demonstrate that natively unlearnable language models are feasible via memorization sinks with minimal degradation of general capabilities." },
       

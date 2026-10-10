@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const newsList = document.getElementById('newsList');
   
     const newsItems = [
+  { date: '[Oct 2026]', content: 'Congrats to <a href="https://grghosal.github.io">Gaurav</a> for winning the Best Paper Award at the HAIPS workshop at COLM 2026 for <a href="https://ar-forum.github.io/assets/nulls_preprint.pdf">NULLs: Natively Unlearnable Large Language Models</a>!', highlights:['Best Paper Award']},
   { date: '[Sep 2026]', content: 'Aditi is presenting <i>Disentangling memorization from generalization by design</i> at the <a href="https://kempnerinstitute.harvard.edu/learning-dynamics-workshop/ld-program-schedule/">Learning Dynamics in Natural and Artificial Intelligence</a> workshop at the Kempner Institute.'},
   { date: '[Aug 2026]', content:'Ziqian shares new work with Transluce on <a href = "https://x.com/TransluceAI/status/2085455114924638320">user awareness</a>, plus new work on <a href = "https://x.com/fjzzq2002/status/2082904767236628900">subliminal learning of model identity</a>.', highlights:['user awareness', 'subliminal learning of model identity']},
   { date: '[Jun 2026]', content: 'Aditi was named to Delta Institute\'s inaugural <a href="https://deltainstitutes.org/rising-professors-2026">Rising Professors: 2026</a> list.', highlights:['Rising Professors']},
