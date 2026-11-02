@@ -2,9 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const newsList = document.getElementById('newsList');
   
     const newsItems = [
+  { date: '[Oct 2026]', content: 'Congrats to <a href="https://grghosal.github.io">Gaurav</a> for winning the Best Paper Award at the HAIPS workshop at COLM 2026 for <a href="https://ar-forum.github.io/assets/nulls_preprint.pdf">NULLs: Natively Unlearnable Large Language Models</a>!', highlights:['Best Paper Award']},
+  { date: '[Sep 2026]', content: 'Aditi is presenting <i>Disentangling memorization from generalization by design</i> at the <a href="https://kempnerinstitute.harvard.edu/learning-dynamics-workshop/ld-program-schedule/">Learning Dynamics in Natural and Artificial Intelligence</a> workshop at the Kempner Institute.'},
+  { date: '[Aug 2026]', content:'Ziqian shares new work with Transluce on <a href = "https://x.com/TransluceAI/status/2085455114924638320">user awareness</a>, plus new work on <a href = "https://x.com/fjzzq2002/status/2082904767236628900">subliminal learning of model identity</a>.', highlights:['user awareness', 'subliminal learning of model identity']},
+  { date: '[Jun 2026]', content: 'Aditi was named to Delta Institute\'s inaugural <a href="https://deltainstitutes.org/rising-professors-2026">Rising Professors: 2026</a> list.', highlights:['Rising Professors']},
+  { date: '[Apr 2026]', content: 'Ishaan Watts is presenting <i>Sharpness-aware pretraining mitigates catastrophic forgetting</i> as an oral at the <a href="https://sites.google.com/view/icbinb-2026/home?authuser=0">ICBINB</a> workshop at ICLR 2026.', highlights:['oral']},
+  { date: '[Apr 2026]', content: 'Aditi is presenting at the <a href="https://sites.google.com/view/memagent-iclr26/">MemAgents</a> and <a href="https://sites.google.com/view/icbinb-2026/home?authuser=0">I Can\'t Believe It\'s Not Better</a> workshops at ICLR 2026.'},
+  { date: '[Feb 2026]', content: 'Aditi receives the Sloan Research Fellowship!'},
+  { date: '[Nov 2025]', content: 'Congrats to Ziqian for Runner-Up Best Paper Award at NeurIPS 2025 workshop on reliable machine learning. Check out <a href = "https://arxiv.org/abs/2508.00161"> their work</a>.', highlights:['Runner-Up Best Paper Award']},
   { date: '[Nov 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at MIT.'}, 
   { date: '[Oct 2025]', content:'Ziqian releases <a href = "https://arxiv.org/abs/2510.20270">Impossible Bench</a> to identify and measure reward hacking in coding agents.'}, 
   { date: '[Oct 2025]', content:'Aditi is giving a talk on <i> The Missing Laws of Modern Scaling </i> at Cornell Tech.'}, 
+  { date: '[Sep 2025]', content:'Aditi joined the <a href = "https://twimlai.com/podcast/twimlai/is-it-time-to-rethink-llm-pre-training/"> TWIML podcast </a> to talk about our research on rethinking pretraining.'}, 
   { date: '[July 2025]', content: 'Aditi receives the NSF CAREER award.'},
   { date: '[July 2025]', content: 'Congrats to Vaishnavh, Chen and Charles for an ICML 2025 Outstanding Paper Award. Check out their work on <a href = "https://arxiv.org/pdf/2504.15266"> creativity </a> of language models.', highlights:['Outstanding Paper Award']},
 	{ date: '[July 2025]', content: 'Aditi is giving two ICML workshop talks at <a href = "https://dataworldicml2025.github.io/index.html"> DataWorld: Unifying Data Curation Frameworks Across Domains </a> and <a href = "https://sites.google.com/view/moss2025/"> Methods and Opportunities at Small Scale</a>.' },

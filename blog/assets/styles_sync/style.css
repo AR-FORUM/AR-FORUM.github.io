@@ -474,6 +474,51 @@ section {
   text-decoration: underline;  
 }
 
+/* Teaching */
+#teaching {
+  max-width: 900px;
+}
+
+#teaching h1 {
+  font-size: 2.4em;
+  font-weight: 600;
+  margin: 18px 0 12px;
+}
+
+#teaching h2 {
+  margin-top: 28px;
+}
+
+#teaching p,
+#teaching li {
+  font-size: 1.12em;
+  line-height: 1.5;
+}
+
+.course-meta p {
+  margin: 4px 0;
+}
+
+.course-schedule {
+  border-collapse: collapse;
+  font-size: 1.05em;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.course-schedule th,
+.course-schedule td {
+  border: 1px solid #d8dee8;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.course-schedule th {
+  background: var(--lightbg);
+  font-weight: 600;
+}
+
 /* Category Buttons */
 .category-buttons {
   text-align: center;
@@ -580,6 +625,16 @@ section {
   /* Publications */
   .publication-title {
     font-size: 1.2em;
+  }
+
+  #teaching h1 {
+    font-size: 2em;
+  }
+
+  .course-schedule {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   /* People page headers on tablet/mobile */
